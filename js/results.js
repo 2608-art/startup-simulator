@@ -90,6 +90,34 @@
    }
   });
  }
+ let startPair;
+ function showStartPair(message){
+  const rows=$('start-pair-rows'), table=$('start-pair-table'), note=$('start-pair-difference');
+  rows.replaceChildren();
+  table.hidden=!startPair;
+  if(!startPair){note.textContent=message||'';return;}
+  const scenario=$('start-pair-scenario').selectedIndex;
+  const plans=[startPair[50][scenario],startPair[68][scenario]];
+  function row(title,values){
+   const tr=rows.insertRow(),heading=document.createElement('th');
+   heading.scope='row';heading.textContent=title;tr.append(heading);
+   for(const value of values)tr.insertCell().textContent=value;
+  }
+  row('6개월째 하루 결제 목표',plans.map(p=>p.count!==undefined?num(p.count,0)+'명':p.reason));
+  const reserves=plans.map(p=>p.reserve??p.atLimit?.reserve);
+  row('첫 6개월 운영자금',reserves.map((v,i)=>v===undefined?'계산 불가':money(v)+(plans[i].atLimit?' (처리 상한 기준)':'')));
+  const guests=plans[0].count-plans[1].count, cash=reserves[0]-reserves[1];
+  function difference(delta,amount){
+   if(delta===0)return '같습니다';
+   return amount+(delta>0?' 더 필요합니다':' 덜 필요합니다');
+  }
+  const targetNote=Number.isFinite(guests)?
+   `6개월째 하루 결제 목표는 ${difference(guests,num(Math.abs(guests),0)+'명')}.`:'결제 목표 차이 계산 불가.';
+  const cashNote=Number.isFinite(cash)?
+   `첫 6개월 운영자금은 ${difference(cash,money(Math.abs(cash)))}.`:'운영자금 차이를 계산할 수 없습니다.';
+  note.textContent=`68명 대신 50명으로 시작하면 ${targetNote} ${cashNote}`;
+  if(plans.some(p=>p.atLimit))note.textContent+=' 처리 상한 기준 금액은 첫해 적자가 남는 경우에 첫 6개월을 버틸 돈입니다.';
+ }
  let thresholdWorker, thresholdTimer;
  function renderThreshold(r){
   clearTimeout(thresholdTimer);
@@ -97,6 +125,8 @@
   thresholdWorker=null;
   const answer=$('threshold-answer'), rows=$('threshold-rows'), basis=$('threshold-basis');
   rows.replaceChildren();
+  startPair=null;
+  showStartPair(r?.recurringComplete?'두 출발 조건을 계산하고 있어요…':'운영 비용과 입력값을 확인해 주세요.');
   renderGrowthComparison();
   renderGrowth({reason:r?.recurringComplete?'월별 현금을 비교하고 있어요…':'운영 비용과 입력값을 확인해 주세요.'});
   if(!r?.recurringComplete){
@@ -112,15 +142,16 @@
   basis.textContent=`월 생활비 ${money(r.draw)} · 객단가 ${money(ticket)} · 원가율 ${num(costPercent)}%. 첫 달부터 같은 수로 영업할 때, 첫해 12개월 모두 생활비와 대출 상환 후 현금이 줄지 않는 최소 인원입니다. 객단가만 바꿀 때는 원가율을 유지합니다.`;
   answer.textContent='월별 현금을 비교하고 있어요…';
   thresholdTimer=setTimeout(()=>{
-   const failed=()=>{answer.textContent='결제 인원을 계산하지 못했어요. 화면을 새로고침해 주세요.';renderGrowth({reason:answer.textContent});};
+   const failed=()=>{answer.textContent='결제 인원을 계산하지 못했어요. 화면을 새로고침해 주세요.';renderGrowth({reason:answer.textContent});showStartPair(answer.textContent);};
    try{
-    const worker=new Worker('js/customer-threshold-worker.js?v=growth-start-2');
+    const worker=new Worker('js/customer-threshold-worker.js?v=start-pair-1');
     thresholdWorker=worker;
     worker.onerror=()=>{worker.terminate();failed();};
     worker.onmessage=({data})=>{
      if(worker!==thresholdWorker)return;
      worker.terminate();
-     const {steady,growth,growthError}=data;
+     const {steady,growth,growthError,pair}=data;
+     startPair=pair;showStartPair();
      if(growthError)renderGrowth({reason:growthError});
      else{
       renderGrowth(growth[0]);
@@ -215,6 +246,7 @@
   return validation;
  }
  function setup(){
+  $('start-pair-scenario').onchange=()=>{if(startPair)showStartPair();};
   const mode=$('growth-start-mode'), count=$('growth-start-count');
   if(state.growthStartMode==='fixed68'){
    state.growthStartMode='custom';
