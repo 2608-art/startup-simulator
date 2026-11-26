@@ -19,26 +19,45 @@ function conditions(state, context, priceFactor, addedCostPoints, addedTax) {
   return {inputs, context: {...context, menus: context.menus.map(menu => ({...menu, price: prices.get(menu.id)}))}};
 }
 
-function minimumBuyers({inputs, context}) {
+function firstYearCoversLivingCosts(result) {
+  return result.rows.slice(1, 13).every(month => month.change >= -1e-7);
+}
+
+function minimumBuyers({inputs, context}, meetsGoal = firstYearCoversLivingCosts, summarize = () => ({})) {
   const plan = ResultsModel.demandPlan(inputs, context);
   if (!plan.known) return {reason: '영업시간 확인 필요'};
-  const limit = Math.min(10000, Math.floor(plan.cap + 1e-8));
-  // Buying a fresh pack can make an individual month worse at a higher volume.
-  // Check consecutive counts rather than assuming monthly cash is monotonic.
+  const limit = Math.min(10000, Math.ceil(plan.cap));
+  let result;
+  // Stock purchases come in packs, so monthly cash need not rise monotonically.
   for (let count = 0; count <= limit; count++) {
-    const result = ResultsModel.calculate({...inputs, dailyGuests: String(count)}, context);
+    result = ResultsModel.calculate({...inputs, dailyGuests: String(count)}, context);
     if (!result?.recurringComplete) return {reason: '비용·입력 확인 필요'};
-    if (result.rows.slice(1, 13).every(month => month.change >= -1e-7)) return {count};
+    if (meetsGoal(result)) return {count, ...summarize(result)};
   }
-  const atCap = ResultsModel.calculate({...inputs, dailyGuests: String(Math.min(10000, Math.ceil(plan.cap)))}, context);
-  if (!atCap?.recurringComplete) return {reason: '비용·입력 확인 필요'};
-  const worstMonth = Math.min(...atCap.rows.slice(1, 13).map(month => month.change));
-  if (worstMonth >= -1e-7) return {count: Math.ceil(atCap.demand.months[0].served - 1e-8)};
-  return {worstMonth, reason: limit === 10000 ? '입력 범위 내 달성 불가' : '처리 상한 내 달성 불가',
-    cap: atCap.demand.months[0].served, averageNet: atCap.averageNet};
+  return {reason: plan.cap > 10000 ? '입력 범위 내 달성 불가' : '처리 상한 내 달성 불가',
+    cap: result.demand.months[11].served, averageNet: result.averageNet,
+    worstMonth: Math.min(...result.rows.slice(1, 13).map(month => month.change))};
+}
+
+function sixMonthGrowth(state, context) {
+  const scenario = conditions(state, context, 1, 0, 0);
+  Object.assign(scenario.inputs, {rampMode: 'gradual', rampStart: '60', rampMonths: '6'});
+  return minimumBuyers(scenario, result => result.averageNet >= -1e-7, result => {
+    let cumulative = 0, lowest = 0, lowMonth = 0;
+    const months = result.rows.slice(1, 7).map(month => {
+      cumulative += month.change;
+      if (cumulative < lowest) {
+        lowest = cumulative;
+        lowMonth = month.month;
+      }
+      return {month: month.month, guests: month.guests, change: month.change, cumulative};
+    });
+    return {reserve: Math.ceil(-lowest), lowMonth, months, averageNet: result.averageNet};
+  });
 }
 
 self.onmessage = ({data: {state, context}}) => {
   const scenarios = [[1, 0, 0], [.9, 0, 0], [1, 5, 0], [1, 0, 30], [.9, 5, 30]];
-  self.postMessage(scenarios.map(args => minimumBuyers(conditions(state, context, ...args))));
+  const steady = scenarios.map(args => minimumBuyers(conditions(state, context, ...args)));
+  self.postMessage({steady, growth: sixMonthGrowth(state, context)});
 };

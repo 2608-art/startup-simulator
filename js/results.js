@@ -29,6 +29,28 @@
  }
  function lines(id,rows){$(id).innerHTML=rows.map(([name,value,total])=>`<div${total?' class="total-line"':''}><dt>${esc(name)}</dt><dd>${esc(value)}</dd></div>`).join('');}
  function runwayText(r){return r.kind==='unknown'?'비용 미확정':r.kind==='opening-shortfall'?'개업자금 부족':r.kind==='beyond'?'120개월 내 소진 없음':r.months===0?'첫 달부터 부족':num(r.months,2)+'개월';}
+ function renderGrowth(result){
+  const answer=$('growth-answer'), cash=$('growth-cash'), detail=$('growth-detail'), rows=$('growth-months');
+  rows.replaceChildren();
+  cash.textContent='';
+  detail.hidden=!result.months;
+  if(!result.months){
+   answer.textContent=result.reason;
+   if(Number.isFinite(result.averageNet))cash.textContent=`6개월째 하루 약 ${num(result.cap,0)}명까지 늘어도 첫해 월평균 ${money(-result.averageNet)}이 부족합니다.`;
+   return;
+  }
+  answer.textContent=`첫 달 하루 약 ${num(result.months[0].guests,0)}명 → 6개월째 하루 ${num(result.count,0)}명 결제`;
+  cash.textContent=result.reserve>0?
+   `개업비를 지불한 뒤 남겨둘 운영자금은 최소 ${money(result.reserve)}입니다. ${result.lowMonth}개월 말에 누적 현금이 가장 많이 줄어듭니다.`:
+   '첫 6개월 동안 월말 기준으로 개업 직후보다 운영 현금이 줄어드는 달이 없습니다.';
+  for(const month of result.months){
+   const row=rows.insertRow(), heading=document.createElement('th');
+   heading.scope='row';heading.textContent=month.month+'개월';row.append(heading);
+   row.insertCell().textContent=num(month.guests,1)+'명';
+   row.insertCell().textContent=money(month.change);
+   row.insertCell().textContent=money(month.cumulative);
+  }
+ }
  let thresholdWorker, thresholdTimer;
  function renderThreshold(r){
   clearTimeout(thresholdTimer);
@@ -36,6 +58,7 @@
   thresholdWorker=null;
   const answer=$('threshold-answer'), rows=$('threshold-rows'), basis=$('threshold-basis');
   rows.replaceChildren();
+  renderGrowth({reason:r?.recurringComplete?'월별 현금을 비교하고 있어요…':'운영 비용과 입력값을 확인해 주세요.'});
   if(!r?.recurringComplete){
    answer.textContent='운영 비용과 입력값을 확인하면 필요한 결제 인원을 표시합니다.';
    basis.textContent='';return;
@@ -49,17 +72,19 @@
   basis.textContent=`월 생활비 ${money(r.draw)} · 객단가 ${money(ticket)} · 원가율 ${num(costPercent)}%. 첫 달부터 같은 수로 영업할 때, 첫해 12개월 모두 생활비와 대출 상환 후 현금이 줄지 않는 최소 인원입니다. 객단가만 바꿀 때는 원가율을 유지합니다.`;
   answer.textContent='월별 현금을 비교하고 있어요…';
   thresholdTimer=setTimeout(()=>{
-   const failed=()=>{answer.textContent='결제 인원을 계산하지 못했어요. 화면을 새로고침해 주세요.';};
+   const failed=()=>{answer.textContent='결제 인원을 계산하지 못했어요. 화면을 새로고침해 주세요.';renderGrowth({reason:answer.textContent});};
    try{
-    const worker=new Worker('js/customer-threshold-worker.js?v=2');
+    const worker=new Worker('js/customer-threshold-worker.js?v=growth-1');
     thresholdWorker=worker;
     worker.onerror=()=>{worker.terminate();failed();};
     worker.onmessage=({data})=>{
      if(worker!==thresholdWorker)return;
      worker.terminate();
-     const base=data[0].count;
-     answer.textContent=base===undefined?data[0].reason:`영업일 하루 평균 ${num(base,0)}명 결제`;
-     data.forEach(({count,reason,cap,averageNet,worstMonth},i)=>{
+     const {steady,growth}=data;
+     renderGrowth(growth);
+     const base=steady[0].count;
+     answer.textContent=base===undefined?steady[0].reason:`영업일 하루 평균 ${num(base,0)}명 결제`;
+     steady.forEach(({count,reason,cap,averageNet,worstMonth},i)=>{
       const row=rows.insertRow(),label=document.createElement('th');
       label.scope='row';label.textContent=labels[i];row.append(label);
       row.insertCell().textContent=count===undefined?reason:`${num(count,0)}명`;
