@@ -35,12 +35,11 @@ function minimumBuyers({inputs, context}, meetsGoal = firstYearCoversLivingCosts
     if (meetsGoal(result)) return {count, ...summarize(result)};
   }
   return {reason: plan.cap > 10000 ? '입력 범위 내 달성 불가' : '처리 상한 내 달성 불가',
-    cap: result.demand.months[11].served, averageNet: result.averageNet,
+    atLimit: summarize(result), cap: result.demand.months[11].served, averageNet: result.averageNet,
     worstMonth: Math.min(...result.rows.slice(1, 13).map(month => month.change))};
 }
 
-function sixMonthGrowth(state, context) {
-  const scenario = conditions(state, context, 1, 0, 0);
+function sixMonthGrowth(scenario) {
   Object.assign(scenario.inputs, {rampMode: 'gradual', rampStart: '60', rampMonths: '6'});
   return minimumBuyers(scenario, result => result.averageNet >= -1e-7, result => {
     let cumulative = 0, lowest = 0, lowMonth = 0;
@@ -59,5 +58,7 @@ function sixMonthGrowth(state, context) {
 self.onmessage = ({data: {state, context}}) => {
   const scenarios = [[1, 0, 0], [.9, 0, 0], [1, 5, 0], [1, 0, 30], [.9, 5, 30]];
   const steady = scenarios.map(args => minimumBuyers(conditions(state, context, ...args)));
-  self.postMessage({steady, growth: sixMonthGrowth(state, context)});
+  const growthScenarios = [[1, 0, 0], [.9, 0, 0], [1, 5, 0], [.9, 5, 0]];
+  const growth = growthScenarios.map(args => sixMonthGrowth(conditions(state, context, ...args)));
+  self.postMessage({steady, growth});
 };

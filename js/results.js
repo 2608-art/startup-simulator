@@ -51,6 +51,40 @@
    row.insertCell().textContent=money(month.cumulative);
   }
  }
+ function renderGrowthComparison(results=[],labels=[]){
+  const table=$('growth-comparison'), rows=$('growth-comparison-rows');
+  table.hidden=!results.length;
+  $('growth-cap-note').hidden=!results.some(result=>result.atLimit);
+  rows.replaceChildren();
+  function addNote(cell,text){
+   const note=document.createElement('small');
+   note.textContent=text;
+   cell.append(note);
+  }
+  const base=results[0];
+  results.forEach((result,i)=>{
+   const row=rows.insertRow(), heading=document.createElement('th');
+   heading.scope='row';heading.textContent=labels[i];row.append(heading);
+   const target=row.insertCell(), cash=row.insertCell();
+   const reserve=result.reserve??result.atLimit?.reserve;
+   target.textContent=result.count===undefined?result.reason:num(result.count,0)+'명';
+   cash.textContent=reserve===undefined?'—':money(reserve);
+   if(result.atLimit){
+    addNote(target,`하루 약 ${num(result.cap,0)}명에서도 첫해 ${money(-12*result.averageNet)} 부족`);
+    addNote(cash,'처리 상한 기준');
+   }
+   if(i===0)return;
+   if(result.count!==undefined&&base.count!==undefined){
+    const diff=result.count-base.count;
+    addNote(target,diff===0?'현재와 같음':`현재보다 ${num(Math.abs(diff),0)}명 ${diff>0?'더':'적게'}`);
+   }
+   const baseReserve=base.reserve??base.atLimit?.reserve;
+   if(reserve!==undefined&&baseReserve!==undefined){
+    const diff=reserve-baseReserve;
+    addNote(cash,diff===0?'현재와 같음':`현재보다 ${money(Math.abs(diff))} ${diff>0?'더':'적게'}`);
+   }
+  });
+ }
  let thresholdWorker, thresholdTimer;
  function renderThreshold(r){
   clearTimeout(thresholdTimer);
@@ -58,6 +92,7 @@
   thresholdWorker=null;
   const answer=$('threshold-answer'), rows=$('threshold-rows'), basis=$('threshold-basis');
   rows.replaceChildren();
+  renderGrowthComparison();
   renderGrowth({reason:r?.recurringComplete?'월별 현금을 비교하고 있어요…':'운영 비용과 입력값을 확인해 주세요.'});
   if(!r?.recurringComplete){
    answer.textContent='운영 비용과 입력값을 확인하면 필요한 결제 인원을 표시합니다.';
@@ -74,14 +109,15 @@
   thresholdTimer=setTimeout(()=>{
    const failed=()=>{answer.textContent='결제 인원을 계산하지 못했어요. 화면을 새로고침해 주세요.';renderGrowth({reason:answer.textContent});};
    try{
-    const worker=new Worker('js/customer-threshold-worker.js?v=growth-1');
+    const worker=new Worker('js/customer-threshold-worker.js?v=growth-compare-1');
     thresholdWorker=worker;
     worker.onerror=()=>{worker.terminate();failed();};
     worker.onmessage=({data})=>{
      if(worker!==thresholdWorker)return;
      worker.terminate();
      const {steady,growth}=data;
-     renderGrowth(growth);
+     renderGrowth(growth[0]);
+     renderGrowthComparison(growth,[...labels.slice(0,3),'객단가 하락 + 원가율 상승']);
      const base=steady[0].count;
      answer.textContent=base===undefined?steady[0].reason:`영업일 하루 평균 ${num(base,0)}명 결제`;
      steady.forEach(({count,reason,cap,averageNet,worstMonth},i)=>{
