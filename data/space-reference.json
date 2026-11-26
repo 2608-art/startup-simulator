@@ -1,0 +1,534 @@
+{
+  "schemaVersion": 1,
+  "quarter": "20262",
+  "retrievedAt": "2026-11-17T09:59:51.777597+09:00",
+  "source": {
+    "title": "서울시 상권분석서비스 · 지역별 평균 임대료",
+    "url": "https://golmok.seoul.go.kr/stateArea.do",
+    "definitionUrl": "https://golmok.seoul.go.kr/source.do",
+    "provider": "서울신용보증재단",
+    "sourceSha256": "f4072177017fa97b072877e053901d3046cd1bc01598d5f106631972a6361973"
+  },
+  "unit": "원 / 3.3㎡ / 월 환산임대료",
+  "annualConversionRate": 0.12,
+  "sourceDefinition": "최근 1년간 수집된 서울신용보증재단 보증 고객 통계에 기반한 추정값. 환산임대료 = 보증금 × 12% ÷ 12 + 월세.",
+  "limits": [
+    "카페 한정 표본이 아닙니다. 구별 표본 수와 오차 범위는 확인되지 않았습니다.",
+    "공개 구분은 1층과 1층 외입니다. 지하·2층 이상을 개별 추정하지 않습니다.",
+    "면적의 전용/계약 기준, 관리비·VAT 포함 여부는 확인되지 않았습니다. 입력 면적과 같은 기준이라고 가정합니다.",
+    "공식 제공 API가 아닌 공개 화면의 조회 응답을 보관한 참고값입니다."
+  ],
+  "scenarioDefaults": {
+    "depositMonths": 12,
+    "premiumMonths": 6,
+    "adjustmentPercent": 100
+  },
+  "scenarioDefinition": "보증금=월세×보증금 개월수, 권리금=월세×권리금 개월수. 개월수는 제품의 모의 가정이며 관측 통계·시세 예측이 아닙니다.",
+  "floorReference": {
+    "quarter": "20263",
+    "scope": "서울 전체 · 중대형 상가",
+    "ratios": {
+      "-1": 27.3601357679962,
+      "1": 100.0,
+      "2": 44.605497814385,
+      "3": 35.1456915801996,
+      "4": 32.5589970426322,
+      "5": 33.0047749374367,
+      "6+": 33.6391168615905
+    },
+    "sourceUrl": "https://www.reb.or.kr/r-one/portal/stat/easyStatPage/T261943143757415.do",
+    "definitionUrl": "https://www.reb.or.kr/reb/cm/cntnts/cntntsView.do?mi=10335&cntntsId=1049&statId=S237220284",
+    "retrievedAt": "2026-11-17T10:04:24.117372+09:00",
+    "sourceSha256": "f9a83834f649410df2abae28c8402f6d189d661578ae547ad41d2b37c68b7435",
+    "definition": "층별 효용비율 = 해당 층의 환산임대료 ÷ 1층의 환산임대료 × 100.",
+    "application": "서울 전체 중대형 상가의 비율을 모든 구의 1층 참고 단가에 적용하는 모의 가정입니다. 각 구·카페의 실제 층별 시세가 아닙니다. 서울시 단가와 조사기관·표본·기준분기가 다릅니다.",
+    "rows": [
+      {
+        "key": "-1",
+        "floor": "지하1층",
+        "rentThousandPerSqm": 15.6287960464019,
+        "ratio": 27.3601357679962
+      },
+      {
+        "key": "1",
+        "floor": "1층",
+        "rentThousandPerSqm": 57.1225091093419,
+        "ratio": 100.0
+      },
+      {
+        "key": "2",
+        "floor": "2층",
+        "rentThousandPerSqm": 25.4797795522894,
+        "ratio": 44.605497814385
+      },
+      {
+        "key": "3",
+        "floor": "3층",
+        "rentThousandPerSqm": 20.0761008744407,
+        "ratio": 35.1456915801996
+      },
+      {
+        "key": "4",
+        "floor": "4층",
+        "rentThousandPerSqm": 18.5985160515879,
+        "ratio": 32.5589970426322
+      },
+      {
+        "key": "5",
+        "floor": "5층",
+        "rentThousandPerSqm": 18.8531555701551,
+        "ratio": 33.0047749374367
+      },
+      {
+        "key": "6+",
+        "floor": "6층이상",
+        "rentThousandPerSqm": 19.2155075935642,
+        "ratio": 33.6391168615905
+      }
+    ]
+  },
+  "districts": [
+    {
+      "code": "11110",
+      "name": "종로구",
+      "firstFloor": 220303,
+      "otherFloors": 157597
+    },
+    {
+      "code": "11140",
+      "name": "중구",
+      "firstFloor": 271766,
+      "otherFloors": 265623
+    },
+    {
+      "code": "11170",
+      "name": "용산구",
+      "firstFloor": 187386,
+      "otherFloors": 129124
+    },
+    {
+      "code": "11200",
+      "name": "성동구",
+      "firstFloor": 151705,
+      "otherFloors": 122358
+    },
+    {
+      "code": "11215",
+      "name": "광진구",
+      "firstFloor": 140138,
+      "otherFloors": 92275
+    },
+    {
+      "code": "11230",
+      "name": "동대문구",
+      "firstFloor": 137118,
+      "otherFloors": 76160
+    },
+    {
+      "code": "11260",
+      "name": "중랑구",
+      "firstFloor": 110454,
+      "otherFloors": 68438
+    },
+    {
+      "code": "11290",
+      "name": "성북구",
+      "firstFloor": 125998,
+      "otherFloors": 82200
+    },
+    {
+      "code": "11305",
+      "name": "강북구",
+      "firstFloor": 113898,
+      "otherFloors": 72367
+    },
+    {
+      "code": "11320",
+      "name": "도봉구",
+      "firstFloor": 127081,
+      "otherFloors": 76935
+    },
+    {
+      "code": "11350",
+      "name": "노원구",
+      "firstFloor": 151286,
+      "otherFloors": 79004
+    },
+    {
+      "code": "11380",
+      "name": "은평구",
+      "firstFloor": 122607,
+      "otherFloors": 89275
+    },
+    {
+      "code": "11410",
+      "name": "서대문구",
+      "firstFloor": 160891,
+      "otherFloors": 118003
+    },
+    {
+      "code": "11440",
+      "name": "마포구",
+      "firstFloor": 224486,
+      "otherFloors": 183679
+    },
+    {
+      "code": "11470",
+      "name": "양천구",
+      "firstFloor": 143756,
+      "otherFloors": 107485
+    },
+    {
+      "code": "11500",
+      "name": "강서구",
+      "firstFloor": 182244,
+      "otherFloors": 131325
+    },
+    {
+      "code": "11530",
+      "name": "구로구",
+      "firstFloor": 188973,
+      "otherFloors": 144476
+    },
+    {
+      "code": "11545",
+      "name": "금천구",
+      "firstFloor": 128839,
+      "otherFloors": 75426
+    },
+    {
+      "code": "11560",
+      "name": "영등포구",
+      "firstFloor": 205043,
+      "otherFloors": 146648
+    },
+    {
+      "code": "11590",
+      "name": "동작구",
+      "firstFloor": 166880,
+      "otherFloors": 109025
+    },
+    {
+      "code": "11620",
+      "name": "관악구",
+      "firstFloor": 147423,
+      "otherFloors": 98076
+    },
+    {
+      "code": "11650",
+      "name": "서초구",
+      "firstFloor": 187851,
+      "otherFloors": 130016
+    },
+    {
+      "code": "11680",
+      "name": "강남구",
+      "firstFloor": 233767,
+      "otherFloors": 171454
+    },
+    {
+      "code": "11710",
+      "name": "송파구",
+      "firstFloor": 164921,
+      "otherFloors": 108947
+    },
+    {
+      "code": "11740",
+      "name": "강동구",
+      "firstFloor": 146850,
+      "otherFloors": 118622
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "11140550",
+      "name": "명동",
+      "districtCode": "11140",
+      "dongName": "명동",
+      "firstFloor": 338848,
+      "otherFloors": 206940,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.5627885,
+        "lng": 126.9837014,
+        "method": "seoul-market-center",
+        "marketCode": "3120028",
+        "anchorName": "명동(명동거리)"
+      }
+    },
+    {
+      "id": "11170650",
+      "name": "이태원",
+      "districtCode": "11170",
+      "dongName": "이태원1동",
+      "firstFloor": 221995,
+      "otherFloors": 153129,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.5349307,
+        "lng": 126.9947841,
+        "method": "seoul-market-center",
+        "marketCode": "3120046",
+        "anchorName": "이태원(이태원역)"
+      }
+    },
+    {
+      "id": "11170685",
+      "name": "한남동",
+      "districtCode": "11170",
+      "dongName": "한남동",
+      "firstFloor": 194143,
+      "otherFloors": 153526,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.5374265,
+        "lng": 127.0022403,
+        "method": "seoul-market-center",
+        "marketCode": "3110095",
+        "anchorName": "한강진역 3번"
+      }
+    },
+    {
+      "id": "11200660",
+      "name": "서울숲·성수 서쪽",
+      "districtCode": "11200",
+      "dongName": "성수1가2동",
+      "firstFloor": 199595,
+      "otherFloors": 150435,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.5472223,
+        "lng": 127.0410661,
+        "method": "seoul-market-center",
+        "marketCode": "3110120",
+        "anchorName": "서울숲카페거리"
+      }
+    },
+    {
+      "id": "11200690",
+      "name": "성수역 주변",
+      "districtCode": "11200",
+      "dongName": "성수2가3동",
+      "firstFloor": 167210,
+      "otherFloors": 140947,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.544675,
+        "lng": 127.0566691,
+        "method": "seoul-market-center",
+        "marketCode": "3120052",
+        "anchorName": "성수역"
+      }
+    },
+    {
+      "id": "11215710",
+      "name": "건대입구·화양",
+      "districtCode": "11215",
+      "dongName": "화양동",
+      "firstFloor": 177842,
+      "otherFloors": 112367,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.5405236,
+        "lng": 127.069418,
+        "method": "seoul-market-center",
+        "marketCode": "3120053",
+        "anchorName": "건대입구역(건대)"
+      }
+    },
+    {
+      "id": "11410585",
+      "name": "신촌",
+      "districtCode": "11410",
+      "dongName": "신촌동",
+      "firstFloor": 177787,
+      "otherFloors": 110297,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.5565286,
+        "lng": 126.9364183,
+        "method": "seoul-market-center",
+        "marketCode": "3120094",
+        "anchorName": "신촌역(신촌역, 신촌로터리)"
+      }
+    },
+    {
+      "id": "11440660",
+      "name": "홍대·서교",
+      "districtCode": "11440",
+      "dongName": "서교동",
+      "firstFloor": 251430,
+      "otherFloors": 188748,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.5559274,
+        "lng": 126.9251693,
+        "method": "seoul-market-center",
+        "marketCode": "3130191",
+        "anchorName": "홍대 걷고싶은 거리"
+      }
+    },
+    {
+      "id": "11440680",
+      "name": "합정",
+      "districtCode": "11440",
+      "dongName": "합정동",
+      "firstFloor": 242755,
+      "otherFloors": 197890,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.5512492,
+        "lng": 126.9093872,
+        "method": "seoul-market-center",
+        "marketCode": "3110550",
+        "anchorName": "합정역 8번"
+      }
+    },
+    {
+      "id": "11440710",
+      "name": "연남동",
+      "districtCode": "11440",
+      "dongName": "연남동",
+      "firstFloor": 227709,
+      "otherFloors": 215562,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.5600702,
+        "lng": 126.9224715,
+        "method": "seoul-market-center",
+        "marketCode": "3120104",
+        "anchorName": "연남동(홍대)"
+      }
+    },
+    {
+      "id": "11560540",
+      "name": "여의도",
+      "districtCode": "11560",
+      "dongName": "여의동",
+      "firstFloor": 274460,
+      "otherFloors": 167166,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.5226812,
+        "lng": 126.9262546,
+        "method": "seoul-market-center",
+        "marketCode": "3120149",
+        "anchorName": "여의도역(여의도)"
+      }
+    },
+    {
+      "id": "11650531",
+      "name": "강남역·서초 쪽",
+      "districtCode": "11650",
+      "dongName": "서초4동",
+      "firstFloor": 220850,
+      "otherFloors": 125681,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.4989424,
+        "lng": 127.0214929,
+        "method": "dong-cafe-centroid",
+        "pointCount": 58,
+        "anchorName": "서초4동 카페 위치의 평균점"
+      }
+    },
+    {
+      "id": "11680510",
+      "name": "가로수길·신사",
+      "districtCode": "11680",
+      "dongName": "신사동",
+      "firstFloor": 281504,
+      "otherFloors": 148627,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.5207739,
+        "lng": 127.0225789,
+        "method": "seoul-market-center",
+        "marketCode": "3120186",
+        "anchorName": "가로수길"
+      }
+    },
+    {
+      "id": "11680545",
+      "name": "압구정",
+      "districtCode": "11680",
+      "dongName": "압구정동",
+      "firstFloor": 269772,
+      "otherFloors": 131181,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.5267699,
+        "lng": 127.0401385,
+        "method": "seoul-market-center",
+        "marketCode": "3120202",
+        "anchorName": "압구정로데오역(압구정로데오)"
+      }
+    },
+    {
+      "id": "11680565",
+      "name": "청담",
+      "districtCode": "11680",
+      "dongName": "청담동",
+      "firstFloor": 258491,
+      "otherFloors": 205615,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.5248299,
+        "lng": 127.0477057,
+        "method": "seoul-market-center",
+        "marketCode": "3120208",
+        "anchorName": "청담사거리(청담동명품거리)"
+      }
+    },
+    {
+      "id": "11710680",
+      "name": "잠실·잠실3동",
+      "districtCode": "11710",
+      "dongName": "잠실3동",
+      "firstFloor": 271164,
+      "otherFloors": 129563,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.5103842,
+        "lng": 127.0940233,
+        "method": "dong-cafe-centroid",
+        "pointCount": 10,
+        "anchorName": "잠실3동 카페 위치의 평균점"
+      }
+    },
+    {
+      "id": "11710710",
+      "name": "잠실역·잠실6동",
+      "districtCode": "11710",
+      "dongName": "잠실6동",
+      "firstFloor": 213429,
+      "otherFloors": 94959,
+      "scope": "administrative-dong",
+      "location": {
+        "lat": 37.5139841,
+        "lng": 127.101268,
+        "method": "seoul-market-center",
+        "marketCode": "3120227",
+        "anchorName": "잠실역"
+      }
+    }
+  ],
+  "hotspotLocations": {
+    "definition": "탐색용 대표 위치입니다. 임대료 조사 지점·실제 매물·상권 경계가 아닙니다. 서울시 상권 중심점을 사용하며, 서초4동·잠실3동은 해당 행정동 공개 카페 좌표의 중복 제거 후 평균점입니다.",
+    "sources": [
+      {
+        "title": "서울시 상권분석서비스 영역-상권 (보관본 2023-10)",
+        "url": "https://data.seoul.go.kr/dataList/OA-15560/S/1/datasetView.do",
+        "file": "research/samples/A/seoul_area_sangkwon/서울시 상권분석서비스(영역-상권).dbf",
+        "sha256": "7e2d03d69442418c142dbaa6b206888777fdd4207825df90c70af408f2c5f3ff"
+      },
+      {
+        "title": "소상공인시장진흥공단 상가(상권)정보 · 2026-09 보관본",
+        "url": "https://www.data.go.kr/data/15083033/fileData.do",
+        "file": "research/samples/A/sbiz_서울_커피전문점_202609.csv",
+        "sha256": "23f78469c2e19046fb9d16c5c2757c8b73f98f7f536b982ecd7716990f67b80b"
+      }
+    ]
+  },
+  "hotspotDefinition": "번화가 주변의 행정동 평균을 비교용으로 사용합니다. 거리의 경계·핵심 점포 시세와 같지 않으며 구 평균 대비 차이는 같은 분기·1층 단가끼리 비교합니다. 번화가 이름은 탐색용 편집 명칭입니다."
+}

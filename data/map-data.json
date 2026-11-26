@@ -1,0 +1,2393 @@
+{
+  "retrieved": {
+    "population": "2026-11-16",
+    "cafes": "2026-11-11",
+    "rone": "2026-11-16"
+  },
+  "markets": [
+    {
+      "id": "3120102",
+      "name": "서교동(홍대)",
+      "lat": 37.5548681,
+      "lng": 126.9175312,
+      "referenceXY": [
+        192713.0,
+        450597.0
+      ],
+      "total": 2717028.0,
+      "times": [
+        {
+          "label": "00–06",
+          "hours": 6,
+          "value": 415346.0
+        },
+        {
+          "label": "06–11",
+          "hours": 5,
+          "value": 485710.0
+        },
+        {
+          "label": "11–14",
+          "hours": 3,
+          "value": 441247.0
+        },
+        {
+          "label": "14–17",
+          "hours": 3,
+          "value": 485159.0
+        },
+        {
+          "label": "17–21",
+          "hours": 4,
+          "value": 587442.0
+        },
+        {
+          "label": "21–24",
+          "hours": 3,
+          "value": 302123.0
+        }
+      ],
+      "days": [
+        {
+          "label": "월",
+          "value": 383212.0
+        },
+        {
+          "label": "화",
+          "value": 387521.0
+        },
+        {
+          "label": "수",
+          "value": 388840.0
+        },
+        {
+          "label": "목",
+          "value": 396656.0
+        },
+        {
+          "label": "금",
+          "value": 406814.0
+        },
+        {
+          "label": "토",
+          "value": 398046.0
+        },
+        {
+          "label": "일",
+          "value": 355939.0
+        }
+      ],
+      "workers": 4770.0,
+      "residents": 3100.0,
+      "cafeCount": 63,
+      "franchiseCount": 7,
+      "franchiseDenominator": 82
+    },
+    {
+      "id": "3120103",
+      "name": "홍대입구역(홍대)",
+      "lat": 37.5505442,
+      "lng": 126.9188034,
+      "referenceXY": [
+        192825.0,
+        450117.0
+      ],
+      "total": 4134072.0,
+      "times": [
+        {
+          "label": "00–06",
+          "hours": 6,
+          "value": 794506.0
+        },
+        {
+          "label": "06–11",
+          "hours": 5,
+          "value": 552548.0
+        },
+        {
+          "label": "11–14",
+          "hours": 3,
+          "value": 552699.0
+        },
+        {
+          "label": "14–17",
+          "hours": 3,
+          "value": 684075.0
+        },
+        {
+          "label": "17–21",
+          "hours": 4,
+          "value": 981823.0
+        },
+        {
+          "label": "21–24",
+          "hours": 3,
+          "value": 568420.0
+        }
+      ],
+      "days": [
+        {
+          "label": "월",
+          "value": 528792.0
+        },
+        {
+          "label": "화",
+          "value": 525816.0
+        },
+        {
+          "label": "수",
+          "value": 528699.0
+        },
+        {
+          "label": "목",
+          "value": 544782.0
+        },
+        {
+          "label": "금",
+          "value": 620481.0
+        },
+        {
+          "label": "토",
+          "value": 742285.0
+        },
+        {
+          "label": "일",
+          "value": 643219.0
+        }
+      ],
+      "workers": 7185.0,
+      "residents": 4546.0,
+      "cafeCount": 175,
+      "franchiseCount": 35,
+      "franchiseDenominator": 259
+    },
+    {
+      "id": "3120104",
+      "name": "연남동(홍대)",
+      "lat": 37.5600702,
+      "lng": 126.9224715,
+      "referenceXY": [
+        193150.0,
+        451174.0
+      ],
+      "total": 5025951.0,
+      "times": [
+        {
+          "label": "00–06",
+          "hours": 6,
+          "value": 993957.0
+        },
+        {
+          "label": "06–11",
+          "hours": 5,
+          "value": 867810.0
+        },
+        {
+          "label": "11–14",
+          "hours": 3,
+          "value": 697465.0
+        },
+        {
+          "label": "14–17",
+          "hours": 3,
+          "value": 784872.0
+        },
+        {
+          "label": "17–21",
+          "hours": 4,
+          "value": 1072527.0
+        },
+        {
+          "label": "21–24",
+          "hours": 3,
+          "value": 609321.0
+        }
+      ],
+      "days": [
+        {
+          "label": "월",
+          "value": 685987.0
+        },
+        {
+          "label": "화",
+          "value": 690340.0
+        },
+        {
+          "label": "수",
+          "value": 690285.0
+        },
+        {
+          "label": "목",
+          "value": 692564.0
+        },
+        {
+          "label": "금",
+          "value": 731871.0
+        },
+        {
+          "label": "토",
+          "value": 799041.0
+        },
+        {
+          "label": "일",
+          "value": 735866.0
+        }
+      ],
+      "workers": 6380.0,
+      "residents": 6602.0,
+      "cafeCount": 156,
+      "franchiseCount": 25,
+      "franchiseDenominator": 215
+    },
+    {
+      "id": "3120105",
+      "name": "상수역(홍대)",
+      "lat": 37.5483667,
+      "lng": 126.9231512,
+      "referenceXY": [
+        193209.0,
+        449875.0
+      ],
+      "total": 1029406.0,
+      "times": [
+        {
+          "label": "00–06",
+          "hours": 6,
+          "value": 215521.0
+        },
+        {
+          "label": "06–11",
+          "hours": 5,
+          "value": 187721.0
+        },
+        {
+          "label": "11–14",
+          "hours": 3,
+          "value": 142706.0
+        },
+        {
+          "label": "14–17",
+          "hours": 3,
+          "value": 146708.0
+        },
+        {
+          "label": "17–21",
+          "hours": 4,
+          "value": 204127.0
+        },
+        {
+          "label": "21–24",
+          "hours": 3,
+          "value": 132622.0
+        }
+      ],
+      "days": [
+        {
+          "label": "월",
+          "value": 140699.0
+        },
+        {
+          "label": "화",
+          "value": 144202.0
+        },
+        {
+          "label": "수",
+          "value": 145119.0
+        },
+        {
+          "label": "목",
+          "value": 147937.0
+        },
+        {
+          "label": "금",
+          "value": 149631.0
+        },
+        {
+          "label": "토",
+          "value": 157558.0
+        },
+        {
+          "label": "일",
+          "value": 144259.0
+        }
+      ],
+      "workers": 1416.0,
+      "residents": 1245.0,
+      "cafeCount": 39,
+      "franchiseCount": 7,
+      "franchiseDenominator": 59
+    },
+    {
+      "id": "3120189",
+      "name": "강남역",
+      "lat": 37.4975719,
+      "lng": 127.0277513,
+      "referenceXY": [
+        202454.0,
+        444235.0
+      ],
+      "total": 7433594.0,
+      "times": [
+        {
+          "label": "00–06",
+          "hours": 6,
+          "value": 894524.0
+        },
+        {
+          "label": "06–11",
+          "hours": 5,
+          "value": 1374298.0
+        },
+        {
+          "label": "11–14",
+          "hours": 3,
+          "value": 1377460.0
+        },
+        {
+          "label": "14–17",
+          "hours": 3,
+          "value": 1417683.0
+        },
+        {
+          "label": "17–21",
+          "hours": 4,
+          "value": 1638176.0
+        },
+        {
+          "label": "21–24",
+          "hours": 3,
+          "value": 731452.0
+        }
+      ],
+      "days": [
+        {
+          "label": "월",
+          "value": 1115793.0
+        },
+        {
+          "label": "화",
+          "value": 1155790.0
+        },
+        {
+          "label": "수",
+          "value": 1151139.0
+        },
+        {
+          "label": "목",
+          "value": 1196535.0
+        },
+        {
+          "label": "금",
+          "value": 1198605.0
+        },
+        {
+          "label": "토",
+          "value": 915480.0
+        },
+        {
+          "label": "일",
+          "value": 700250.0
+        }
+      ],
+      "workers": 87191.0,
+      "residents": 6248.0,
+      "cafeCount": 168,
+      "franchiseCount": 73,
+      "franchiseDenominator": 192
+    },
+    {
+      "id": "3120197",
+      "name": "역삼역",
+      "lat": 37.5003989,
+      "lng": 127.0359514,
+      "referenceXY": [
+        203179.0,
+        444549.0
+      ],
+      "total": 4661032.0,
+      "times": [
+        {
+          "label": "00–06",
+          "hours": 6,
+          "value": 597900.0
+        },
+        {
+          "label": "06–11",
+          "hours": 5,
+          "value": 996363.0
+        },
+        {
+          "label": "11–14",
+          "hours": 3,
+          "value": 923222.0
+        },
+        {
+          "label": "14–17",
+          "hours": 3,
+          "value": 905129.0
+        },
+        {
+          "label": "17–21",
+          "hours": 4,
+          "value": 851298.0
+        },
+        {
+          "label": "21–24",
+          "hours": 3,
+          "value": 387119.0
+        }
+      ],
+      "days": [
+        {
+          "label": "월",
+          "value": 742158.0
+        },
+        {
+          "label": "화",
+          "value": 785212.0
+        },
+        {
+          "label": "수",
+          "value": 782811.0
+        },
+        {
+          "label": "목",
+          "value": 816886.0
+        },
+        {
+          "label": "금",
+          "value": 735411.0
+        },
+        {
+          "label": "토",
+          "value": 424764.0
+        },
+        {
+          "label": "일",
+          "value": 373793.0
+        }
+      ],
+      "workers": 84399.0,
+      "residents": 5764.0,
+      "cafeCount": 146,
+      "franchiseCount": 48,
+      "franchiseDenominator": 184
+    },
+    {
+      "id": "3120210",
+      "name": "선릉역",
+      "lat": 37.5046107,
+      "lng": 127.0493553,
+      "referenceXY": [
+        204364.0,
+        445017.0
+      ],
+      "total": 5195367.0,
+      "times": [
+        {
+          "label": "00–06",
+          "hours": 6,
+          "value": 823351.0
+        },
+        {
+          "label": "06–11",
+          "hours": 5,
+          "value": 1089768.0
+        },
+        {
+          "label": "11–14",
+          "hours": 3,
+          "value": 919226.0
+        },
+        {
+          "label": "14–17",
+          "hours": 3,
+          "value": 895928.0
+        },
+        {
+          "label": "17–21",
+          "hours": 4,
+          "value": 963576.0
+        },
+        {
+          "label": "21–24",
+          "hours": 3,
+          "value": 503519.0
+        }
+      ],
+      "days": [
+        {
+          "label": "월",
+          "value": 788254.0
+        },
+        {
+          "label": "화",
+          "value": 829563.0
+        },
+        {
+          "label": "수",
+          "value": 830059.0
+        },
+        {
+          "label": "목",
+          "value": 855752.0
+        },
+        {
+          "label": "금",
+          "value": 813853.0
+        },
+        {
+          "label": "토",
+          "value": 579196.0
+        },
+        {
+          "label": "일",
+          "value": 498691.0
+        }
+      ],
+      "workers": 59959.0,
+      "residents": 4718.0,
+      "cafeCount": 89,
+      "franchiseCount": 35,
+      "franchiseDenominator": 117
+    },
+    {
+      "id": "3120222",
+      "name": "삼성역",
+      "lat": 37.5086677,
+      "lng": 127.0631565,
+      "referenceXY": [
+        205584.0,
+        445468.0
+      ],
+      "total": 1003515.0,
+      "times": [
+        {
+          "label": "00–06",
+          "hours": 6,
+          "value": 66974.0
+        },
+        {
+          "label": "06–11",
+          "hours": 5,
+          "value": 231100.0
+        },
+        {
+          "label": "11–14",
+          "hours": 3,
+          "value": 227963.0
+        },
+        {
+          "label": "14–17",
+          "hours": 3,
+          "value": 222711.0
+        },
+        {
+          "label": "17–21",
+          "hours": 4,
+          "value": 193277.0
+        },
+        {
+          "label": "21–24",
+          "hours": 3,
+          "value": 61491.0
+        }
+      ],
+      "days": [
+        {
+          "label": "월",
+          "value": 154131.0
+        },
+        {
+          "label": "화",
+          "value": 165852.0
+        },
+        {
+          "label": "수",
+          "value": 167396.0
+        },
+        {
+          "label": "목",
+          "value": 177242.0
+        },
+        {
+          "label": "금",
+          "value": 162702.0
+        },
+        {
+          "label": "토",
+          "value": 93802.0
+        },
+        {
+          "label": "일",
+          "value": 82390.0
+        }
+      ],
+      "workers": 109259.0,
+      "residents": 640.0,
+      "cafeCount": 63,
+      "franchiseCount": 24,
+      "franchiseDenominator": 75
+    }
+  ],
+  "rone": [
+    {
+      "STATBL_ID": "T269343143745470",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": null,
+      "GRP_NM": null,
+      "CLS_ID": 520025,
+      "CLS_NM": "테헤란로",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 52.7687447196462,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": null,
+      "CLS_FULLNM": "서울>강남>테헤란로",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_임대료_26Q3"
+    },
+    {
+      "STATBL_ID": "T269343143745470",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": null,
+      "GRP_NM": null,
+      "CLS_ID": 520030,
+      "CLS_NM": "동교/연남",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 47.8142135377835,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": null,
+      "CLS_FULLNM": "서울>영등포신촌>동교/연남",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_임대료_26Q3"
+    },
+    {
+      "STATBL_ID": "T269343143745470",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": null,
+      "GRP_NM": null,
+      "CLS_ID": 520034,
+      "CLS_NM": "홍대/합정",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 71.5218903780834,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": null,
+      "CLS_FULLNM": "서울>영등포신촌>홍대/합정",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_임대료_26Q3"
+    },
+    {
+      "STATBL_ID": "T269273143698159",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": null,
+      "GRP_NM": null,
+      "CLS_ID": 520021,
+      "CLS_NM": "테헤란로",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 73.3420570099249,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": null,
+      "CLS_FULLNM": "서울>강남>테헤란로",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_임대료_26Q3"
+    },
+    {
+      "STATBL_ID": "T269273143698159",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": null,
+      "GRP_NM": null,
+      "CLS_ID": 520025,
+      "CLS_NM": "동교/연남",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 56.7722174571259,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": null,
+      "CLS_FULLNM": "서울>영등포신촌>동교/연남",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_임대료_26Q3"
+    },
+    {
+      "STATBL_ID": "T269273143698159",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": null,
+      "GRP_NM": null,
+      "CLS_ID": 520029,
+      "CLS_NM": "홍대/합정",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 64.9965281378645,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": null,
+      "CLS_FULLNM": "서울>영등포신촌>홍대/합정",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_임대료_26Q3"
+    },
+    {
+      "STATBL_ID": "T265403143656863",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": null,
+      "GRP_NM": null,
+      "CLS_ID": 520017,
+      "CLS_NM": "테헤란로",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 74.811982755908,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": null,
+      "CLS_FULLNM": "서울>강남>테헤란로",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_임대료_26Q3"
+    },
+    {
+      "STATBL_ID": "T265403143656863",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": null,
+      "GRP_NM": null,
+      "CLS_ID": 520024,
+      "CLS_NM": "홍대/합정",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 37.8657556121194,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": null,
+      "CLS_FULLNM": "서울>영등포신촌>홍대/합정",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_임대료_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60022,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 19.0272116232414,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60070,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 24.6078849285722,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60073,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 25.9751189421644,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60022,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 52.7687447196462,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60070,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 47.8142135377835,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60073,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 71.5218903780834,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60022,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 33.0200844013754,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60070,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 29.8079625354251,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60073,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 32.4497157247644,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60022,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50004,
+      "CLS_NM": "3층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 27.1122310052631,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "3층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60070,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50004,
+      "CLS_NM": "3층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 22.9714956805605,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "3층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60073,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50004,
+      "CLS_NM": "3층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 26.9678818966741,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "3층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60022,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50005,
+      "CLS_NM": "4층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 24.3891534527532,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "4층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60070,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50005,
+      "CLS_NM": "4층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 21.838611579387,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "4층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60073,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50005,
+      "CLS_NM": "4층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 22.851923223307,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "4층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60022,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50006,
+      "CLS_NM": "5층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 23.2420060968325,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "5층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60070,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50006,
+      "CLS_NM": "5층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 15.4430026510395,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "5층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60073,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50006,
+      "CLS_NM": "5층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 20.1271104211139,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "5층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60022,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50007,
+      "CLS_NM": "6층이상",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 18.7061361018719,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "6층이상",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60070,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50007,
+      "CLS_NM": "6층이상",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": null,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "6층이상",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60073,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50007,
+      "CLS_NM": "6층이상",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 22.3791883224594,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "6층이상",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60022,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 36.0577302422686,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60070,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 51.4656272849217,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60073,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 36.3177186800477,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60022,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 100,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60070,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 100,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60073,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 100,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60022,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 62.5750803374366,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60070,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 62.3412168263949,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60073,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 45.3703272567695,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60022,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50004,
+      "CLS_NM": "3층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 51.3793366685279,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "3층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60070,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50004,
+      "CLS_NM": "3층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 48.043236479061,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "3층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60073,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50004,
+      "CLS_NM": "3층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 37.7057733710823,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "3층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60022,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50005,
+      "CLS_NM": "4층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 46.218938089829,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "4층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60070,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50005,
+      "CLS_NM": "4층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 45.6738905934945,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "4층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60073,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50005,
+      "CLS_NM": "4층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 31.9509497057555,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "4층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60022,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50006,
+      "CLS_NM": "5층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 44.0450236599608,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "5층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60070,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50006,
+      "CLS_NM": "5층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 32.2979329960874,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "5층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60073,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50006,
+      "CLS_NM": "5층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 28.1411891026883,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "5층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60022,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50007,
+      "CLS_NM": "6층이상",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 35.4492724836554,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "6층이상",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60070,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50007,
+      "CLS_NM": "6층이상",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": null,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "6층이상",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T261943143757415",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60073,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50007,
+      "CLS_NM": "6층이상",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 31.2899843728362,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "6층이상",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "중대형_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60028,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 30.0182907147724,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60587,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 38.1761079769892,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60589,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 29.4234757502643,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60028,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 73.3420570099249,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60587,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 56.7722174571259,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60589,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 64.9965281378645,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60028,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 39.1308787911651,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60587,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 32.1944172854513,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60589,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 36.0488522791305,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60028,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 40.929163891204,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60587,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 67.2443488856493,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60589,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 45.2693037508927,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60028,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 100,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60587,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 100,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60589,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 100,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60028,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 53.3539423169843,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60587,
+      "GRP_NM": "동교/연남",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 56.7080496895588,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>동교/연남",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265443143777773",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60589,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 55.4627351828194,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "소규모_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60016,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 16.9317191362372,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60044,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 24.4887751547802,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60016,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 74.811982755908,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60044,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 37.8657556121194,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60016,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 32.4880609064817,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60044,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 31.9348780696007,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60016,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50004,
+      "CLS_NM": "3층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 23.3811348505961,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "3층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60044,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50004,
+      "CLS_NM": "3층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 22.3334498907648,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "3층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60016,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50005,
+      "CLS_NM": "4층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 23.6244653917873,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "4층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60044,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50005,
+      "CLS_NM": "4층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 18.3639896999948,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "4층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60016,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50006,
+      "CLS_NM": "5층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 24.8218142779772,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "5층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60044,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50006,
+      "CLS_NM": "5층",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 13.8727546232478,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "5층",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60016,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50007,
+      "CLS_NM": "6층이상",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 22.7419500066175,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "6층이상",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60044,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50007,
+      "CLS_NM": "6층이상",
+      "ITM_ID": 100001,
+      "ITM_NM": "임대료",
+      "DTA_VAL": 9.2880590501129,
+      "UI_NM": "천원/㎡",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "6층이상",
+      "ITM_FULLNM": "임대료",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60016,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 22.6323625073285,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60044,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50001,
+      "CLS_NM": "지하1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 64.6726171415479,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "지하1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60016,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 100,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60044,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50002,
+      "CLS_NM": "1층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 100,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "1층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60016,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 43.4262797344668,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60044,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50003,
+      "CLS_NM": "2층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 84.3370944362709,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "2층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60016,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50004,
+      "CLS_NM": "3층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 31.253194995356,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "3층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60044,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50004,
+      "CLS_NM": "3층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 58.980600095609,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "3층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60016,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50005,
+      "CLS_NM": "4층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 31.5784511003642,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "4층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60044,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50005,
+      "CLS_NM": "4층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 48.4976185028702,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "4층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60016,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50006,
+      "CLS_NM": "5층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 33.1789285133163,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "5층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60044,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50006,
+      "CLS_NM": "5층",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 36.6366771215511,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "5층",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60016,
+      "GRP_NM": "테헤란로",
+      "CLS_ID": 50007,
+      "CLS_NM": "6층이상",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 30.3988066735492,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>강남>테헤란로",
+      "CLS_FULLNM": "6층이상",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    },
+    {
+      "STATBL_ID": "T265223143706844",
+      "DTACYCLE_CD": "QY",
+      "WRTTIME_IDTFR_ID": "202603",
+      "GRP_ID": 60044,
+      "GRP_NM": "홍대/합정",
+      "CLS_ID": 50007,
+      "CLS_NM": "6층이상",
+      "ITM_ID": 100002,
+      "ITM_NM": "효용비율",
+      "DTA_VAL": 24.5289151106763,
+      "UI_NM": "%",
+      "GRP_FULLNM": "서울>영등포신촌>홍대/합정",
+      "CLS_FULLNM": "6층이상",
+      "ITM_FULLNM": "효용비율",
+      "WRTTIME_DESC": "2026년 3분기",
+      "table_label": "집합_층별_26Q3"
+    }
+  ],
+  "provenance": [
+    {
+      "file": "research/samples/A/seoul_area_sangkwon/서울시 상권분석서비스(영역-상권).dbf",
+      "sha256": "7e2d03d69442418c142dbaa6b206888777fdd4207825df90c70af408f2c5f3ff"
+    },
+    {
+      "file": "research/samples/D-seoul/VwsmTrdarFlpopQq_20262_selected8.json",
+      "sha256": "64ea4115b467f1c4da47df53caa34ade2d54854fb9fe275fc6cd43c376b06cc7"
+    },
+    {
+      "file": "research/samples/D-seoul/VwsmTrdarWrcPopltnQq_20262_selected8.json",
+      "sha256": "af0ac601cd579b137e015c67867cda85da3a98601a87715778877df9aabf1c68"
+    },
+    {
+      "file": "research/samples/D-seoul/VwsmTrdarRepopQq_20262_selected8.json",
+      "sha256": "63d44aba73607ae6e0f9c5b5043817077c8f4e7c0c8d36eb347b7121a2b86cc6"
+    },
+    {
+      "file": "research/samples/A/sbiz_카페_시험상권8곳_202609.csv",
+      "sha256": "3eb766648a18ace28204e003f51ec5f65dc28c2e2e4875c623bc156b0db1f3cb"
+    },
+    {
+      "file": "research/samples/A/seoul_store_sangkwon_2025/서울시 상권분석서비스(점포-상권)_2025년.csv",
+      "sha256": "afe3c49336e4c64e3e4066db1bb61034ab7c238916ff473a37d7667fbb4e1d68"
+    },
+    {
+      "file": "research/samples/E-rone/selected-rows.json",
+      "sha256": "1aab30659193ede258727e44017d485861d9f1156be2e284c3030e0f63ce5f65"
+    }
+  ]
+}

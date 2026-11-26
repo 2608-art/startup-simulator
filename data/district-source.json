@@ -1,0 +1,12 @@
+{
+  "sourceUrl": "https://raw.githubusercontent.com/southkorea/seoul-maps/dbb1dcde2e3c9937684c5a44ab9301888ad63ee6/juso/2015/json/seoul_municipalities_geo_simple.json",
+  "repositoryCommit": "dbb1dcde2e3c9937684c5a44ab9301888ad63ee6",
+  "sourceDataset": "JUSO / 서울시 행정구역 시군구 정보 OA-11677",
+  "officialSourceUrl": "https://data.seoul.go.kr/dataList/OA-11677/S/1/datasetView.do",
+  "boundaryYear": 2015,
+  "license": "Apache v2.0 (repository README declaration)",
+  "licenseNote": "Repository redistribution declaration retained; upstream public dataset terms not independently reverified. Historical simplified boundary, not a current cadastral or legal boundary.",
+  "sha256": "e5d9f6e976ef5f19957ea9c1f0c7793680290073c73c62e1efe6a7dbc13443ac",
+  "transformation": "Unchanged simplified geometry; SIG_CD→code, SIG_KOR_NM→name, other attributes omitted.",
+  "statistics": "Official Seoul district statistics in district-data.json joined by 5-digit district code. No aggregation of the previous 8 commercial areas; geometry is used for selection only."
+}
