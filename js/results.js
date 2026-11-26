@@ -65,6 +65,11 @@
   results.forEach((result,i)=>{
    const row=rows.insertRow(), heading=document.createElement('th');
    heading.scope='row';heading.textContent=labels[i];row.append(heading);
+   const months=result.months??result.atLimit?.months;
+   if(months){
+    heading.append(document.createElement('br'));
+    addNote(heading,`첫 달 하루 ${num(months[0].guests,1)}명`);
+   }
    const target=row.insertCell(), cash=row.insertCell();
    const reserve=result.reserve??result.atLimit?.reserve;
    target.textContent=result.count===undefined?result.reason:num(result.count,0)+'명';
@@ -109,7 +114,7 @@
   thresholdTimer=setTimeout(()=>{
    const failed=()=>{answer.textContent='결제 인원을 계산하지 못했어요. 화면을 새로고침해 주세요.';renderGrowth({reason:answer.textContent});};
    try{
-    const worker=new Worker('js/customer-threshold-worker.js?v=growth-compare-1');
+    const worker=new Worker('js/customer-threshold-worker.js?v=growth-start-1');
     thresholdWorker=worker;
     worker.onerror=()=>{worker.terminate();failed();};
     worker.onmessage=({data})=>{
@@ -207,6 +212,12 @@
   return validation;
  }
  function setup(){
+  $('growth-start-mode').value=state.growthStartMode==='fixed68'?'fixed68':'relative';
+  $('growth-start-mode').onchange=e=>{
+   state.growthStartMode=e.target.value;
+   renderThreshold(lastResult);
+   $('save-status').textContent='첫 달 비교 기준을 바꿨어요. 결과 가정을 저장하면 다음에도 유지됩니다.';
+  };
   $('apply-cautious').onclick=()=>{state.capacityMode='limit';state.rampMode='gradual';fill();render();$('save-status').textContent='처리량과 초기 매출 조건을 반영했습니다. 저장하면 다음 방문에도 유지됩니다.';};
   $('apply-steady').onclick=()=>{state.capacityMode='observe';state.rampMode='steady';fill();render();$('save-status').textContent='목표 매출 유지 조건으로 비교 중입니다. 직접 입력한 금액·처리시간·초기 비율은 유지됩니다.';};
   window.addEventListener('startup-budget-saved',e=>{state.ownerDraw=e.detail.ownerDraw;context=getSources();fill();render();});
