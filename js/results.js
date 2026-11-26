@@ -93,7 +93,8 @@
  function renderPairMonths(starts=[],plans=[]){
   const body=$('pair-month-rows');
   body.replaceChildren();
-  const series=plans.map(plan=>plan.months??plan.atLimit?.months);
+  const forecasts=plans.map(plan=>plan.atLimit??plan);
+  const series=forecasts.map(forecast=>forecast.months);
   $('pair-monthly').hidden=!series.some(months=>months?.length);
   if($('pair-monthly').hidden)return;
   for(const [i,id] of ['pair-month-a','pair-month-b'].entries()){
@@ -109,9 +110,21 @@
     const guests=document.createElement('strong'),cash=document.createElement('small');
     guests.textContent='하루 '+num(month.guests,1)+'명';
     const amount=Math.round(month.change);
-    cash.textContent=amount===0?'0원':money(Math.abs(amount))+(amount>0?' 남음':' 부족');
+    cash.textContent='그달 '+(amount===0?'0원':money(Math.abs(amount))+(amount>0?' 남음':' 부족'));
     if(amount<0)cash.className='cash-negative';
-    cell.append(guests,cash);
+    const deficit=Math.max(0,Math.ceil(-month.cumulative-1e-7));
+    const balance=document.createElement('small');
+    balance.textContent='누적 부족 '+money(deficit);
+    const amounts=document.createElement('div');
+    amounts.className='month-amounts';
+    amounts.append(cash,balance);
+    cell.append(guests,amounts);
+    if(deficit>0 && deficit===forecasts[j].reserve){
+     const marker=document.createElement('small');
+     marker.className='peak-deficit';
+     marker.textContent='운영자금 최대';
+     cell.append(marker);
+    }
    }
   }
  }

@@ -15,3 +15,6 @@
 .threshold th:first-child{text-align:left}.threshold tbody th{font-weight:500}
 @media(max-width:500px){.threshold{padding:14px}.threshold th,.threshold td{padding:8px 3px}.threshold table{font-size:13px}}
 .threshold td small{display:block;color:var(--muted);font-size:12px;line-height:1.5;margin-top:3px}
+
+#pair-monthly .month-amounts{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:0 12px}
+#pair-monthly .peak-deficit{display:inline-block;padding:2px 6px;border-radius:4px;background:#f5e1ce;color:#693619;font-weight:700}
