@@ -60,11 +60,14 @@ function sixMonthGrowth(scenario, firstMonth) {
   }, firstMonth);
 }
 
-self.onmessage = ({data: {state, context}}) => {
+self.onmessage = ({data: {state, context, firstMonth}}) => {
   const scenarios = [[1, 0, 0], [.9, 0, 0], [1, 5, 0], [1, 0, 30], [.9, 5, 30]];
   const steady = scenarios.map(args => minimumBuyers(conditions(state, context, ...args)));
   const growthScenarios = [[1, 0, 0], [.9, 0, 0], [1, 5, 0], [.9, 5, 0]];
-  const firstMonth = state.growthStartMode === 'fixed68' ? 68 : null;
+  if(firstMonth!==null && (!Number.isInteger(firstMonth)||firstMonth<0||firstMonth>10000)){
+    self.postMessage({steady, growthError:'첫 달 결제 손님 수를 확인해 주세요.'});
+    return;
+  }
   const growth = growthScenarios.map(args => sixMonthGrowth(conditions(state, context, ...args), firstMonth));
   self.postMessage({steady, growth});
 };

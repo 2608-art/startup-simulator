@@ -114,15 +114,18 @@
   thresholdTimer=setTimeout(()=>{
    const failed=()=>{answer.textContent='결제 인원을 계산하지 못했어요. 화면을 새로고침해 주세요.';renderGrowth({reason:answer.textContent});};
    try{
-    const worker=new Worker('js/customer-threshold-worker.js?v=growth-start-1');
+    const worker=new Worker('js/customer-threshold-worker.js?v=growth-start-2');
     thresholdWorker=worker;
     worker.onerror=()=>{worker.terminate();failed();};
     worker.onmessage=({data})=>{
      if(worker!==thresholdWorker)return;
      worker.terminate();
-     const {steady,growth}=data;
-     renderGrowth(growth[0]);
-     renderGrowthComparison(growth,[...labels.slice(0,3),'객단가 하락 + 원가율 상승']);
+     const {steady,growth,growthError}=data;
+     if(growthError)renderGrowth({reason:growthError});
+     else{
+      renderGrowth(growth[0]);
+      renderGrowthComparison(growth,[...labels.slice(0,3),'객단가 하락 + 원가율 상승']);
+     }
      const base=steady[0].count;
      answer.textContent=base===undefined?steady[0].reason:`영업일 하루 평균 ${num(base,0)}명 결제`;
      steady.forEach(({count,reason,cap,averageNet,worstMonth},i)=>{
@@ -139,7 +142,7 @@
       row.insertCell().textContent=!i?'기준':!Number.isFinite(delta)?'—':delta===0?'같음':`${delta>0?'+':''}${delta}명`;
      });
     };
-    worker.postMessage({state,context});
+    worker.postMessage({state,context,firstMonth:state.growthStartMode==='custom'?$('growth-start-count').valueAsNumber:null});
    }catch(_){failed();}
   },180);
  }
@@ -212,12 +215,29 @@
   return validation;
  }
  function setup(){
-  $('growth-start-mode').value=state.growthStartMode==='fixed68'?'fixed68':'relative';
-  $('growth-start-mode').onchange=e=>{
-   state.growthStartMode=e.target.value;
+  const mode=$('growth-start-mode'), count=$('growth-start-count');
+  if(state.growthStartMode==='fixed68'){
+   state.growthStartMode='custom';
+   state.growthStartCount=68;
+  }
+  mode.value=state.growthStartMode==='custom'?'custom':'relative';
+  count.value=state.growthStartCount??68;
+  function updateStartInput(){
+   count.disabled=mode.value!=='custom';
+   $('growth-start-field').hidden=count.disabled;
+   const valid=count.validity.valid;
+   count.setAttribute('aria-invalid',String(!valid));
+   $('growth-start-error').textContent=valid?'':'0~10,000 사이의 정수를 입력해 주세요.';
+  }
+  function updateGrowth(){
+   state.growthStartMode=mode.value;
+   updateStartInput();
+   if(!count.disabled && count.validity.valid)state.growthStartCount=count.valueAsNumber;
    renderThreshold(lastResult);
    $('save-status').textContent='첫 달 비교 기준을 바꿨어요. 결과 가정을 저장하면 다음에도 유지됩니다.';
-  };
+  }
+  updateStartInput();
+  mode.onchange=count.oninput=updateGrowth;
   $('apply-cautious').onclick=()=>{state.capacityMode='limit';state.rampMode='gradual';fill();render();$('save-status').textContent='처리량과 초기 매출 조건을 반영했습니다. 저장하면 다음 방문에도 유지됩니다.';};
   $('apply-steady').onclick=()=>{state.capacityMode='observe';state.rampMode='steady';fill();render();$('save-status').textContent='목표 매출 유지 조건으로 비교 중입니다. 직접 입력한 금액·처리시간·초기 비율은 유지됩니다.';};
   window.addEventListener('startup-budget-saved',e=>{state.ownerDraw=e.detail.ownerDraw;context=getSources();fill();render();});
