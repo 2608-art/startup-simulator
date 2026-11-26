@@ -29,7 +29,55 @@
  }
  function lines(id,rows){$(id).innerHTML=rows.map(([name,value,total])=>`<div${total?' class="total-line"':''}><dt>${esc(name)}</dt><dd>${esc(value)}</dd></div>`).join('');}
  function runwayText(r){return r.kind==='unknown'?'비용 미확정':r.kind==='opening-shortfall'?'개업자금 부족':r.kind==='beyond'?'120개월 내 소진 없음':r.months===0?'첫 달부터 부족':num(r.months,2)+'개월';}
+ let thresholdWorker, thresholdTimer;
+ function renderThreshold(r){
+  clearTimeout(thresholdTimer);
+  thresholdWorker?.terminate();
+  thresholdWorker=null;
+  const answer=$('threshold-answer'), rows=$('threshold-rows'), basis=$('threshold-basis');
+  rows.replaceChildren();
+  if(!r?.recurringComplete){
+   answer.textContent='운영 비용과 입력값을 확인하면 필요한 결제 인원을 표시합니다.';
+   basis.textContent='';return;
+  }
+  const units=Math.max(1,Number(state.unitsPerGuest));
+  const ticket=r.price*units;
+  const costPercent=state.revenueMode==='average'?Number(state.costPercent):
+   (r.price>0?r.menuRows.reduce((total,m)=>total+Number(state.menus.find(row=>row.id===m.id).cost)*m.share,0)/r.price*100:0);
+  const labels=['현재 조건',`객단가 10% 하락 · ${money(ticket*.9)}`,
+   `원가율 5%p 상승 · ${num(costPercent+5)}%`,`월 세금 지출 30만 원 증가`,'세 조건 모두 적용'];
+  basis.textContent=`월 생활비 ${money(r.draw)} · 객단가 ${money(ticket)} · 원가율 ${num(costPercent)}%. 첫 달부터 같은 수로 영업할 때, 첫해 12개월 모두 생활비와 대출 상환 후 현금이 줄지 않는 최소 인원입니다. 객단가만 바꿀 때는 원가율을 유지합니다.`;
+  answer.textContent='월별 현금을 비교하고 있어요…';
+  thresholdTimer=setTimeout(()=>{
+   const failed=()=>{answer.textContent='결제 인원을 계산하지 못했어요. 화면을 새로고침해 주세요.';};
+   try{
+    const worker=new Worker('js/customer-threshold-worker.js?v=1');
+    thresholdWorker=worker;
+    worker.onerror=()=>{worker.terminate();failed();};
+    worker.onmessage=({data})=>{
+     if(worker!==thresholdWorker)return;
+     worker.terminate();
+     const base=data[0].count;
+     answer.textContent=base===undefined?data[0].reason:`영업일 하루 평균 ${num(base,0)}명 결제`;
+     data.forEach(({count,reason,cap,averageNet},i)=>{
+      const row=rows.insertRow(),label=document.createElement('th');
+      label.scope='row';label.textContent=labels[i];row.append(label);
+      row.insertCell().textContent=count===undefined?reason:`${num(count,0)}명`;
+      if(count===undefined && Number.isFinite(averageNet)){
+       const note=document.createElement('small');
+       note.textContent=`하루 약 ${num(cap,0)}명 결제 시 월평균 ${money(Math.abs(averageNet))} ${averageNet<0?'부족':'남음'}`;
+       row.cells[1].append(note);
+      }
+      const delta=count-base;
+      row.insertCell().textContent=!i?'기준':!Number.isFinite(delta)?'—':delta===0?'같음':`${delta>0?'+':''}${delta}명`;
+     });
+    };
+    worker.postMessage({state,context});
+   }catch(_){failed();}
+  },180);
+ }
  function renderBusiness(r){
+  renderThreshold(r);
   const b=M.businessOutcome(r,context,state);$('business-net').textContent=r?.recurringComplete?money(r.averageNet):'확인 필요';$('business-net').className=r?.averageNet<0?'cash-negative':'';$('business-runway').textContent=r?runwayText(r.runway):'확인 필요';$('finance-source-note').textContent=state.revenueMode==='average'?'결제한 손님 1명당 금액입니다. 한 번에 여러 개를 사도 결제액은 같고, 소모품은 수량에 따라 계산합니다.':'메뉴별 가격·비중·원가로 계산 중';
   const gapText=gap=>gap>0?money(gap)+' 부족':gap<0?money(-gap)+' 여유':'필요액과 일치';
   $('funding-gap').textContent=r?.budget.complete?
