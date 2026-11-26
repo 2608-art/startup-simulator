@@ -51,7 +51,7 @@
   thresholdTimer=setTimeout(()=>{
    const failed=()=>{answer.textContent='결제 인원을 계산하지 못했어요. 화면을 새로고침해 주세요.';};
    try{
-    const worker=new Worker('js/customer-threshold-worker.js?v=1');
+    const worker=new Worker('js/customer-threshold-worker.js?v=2');
     thresholdWorker=worker;
     worker.onerror=()=>{worker.terminate();failed();};
     worker.onmessage=({data})=>{
@@ -59,13 +59,14 @@
      worker.terminate();
      const base=data[0].count;
      answer.textContent=base===undefined?data[0].reason:`영업일 하루 평균 ${num(base,0)}명 결제`;
-     data.forEach(({count,reason,cap,averageNet},i)=>{
+     data.forEach(({count,reason,cap,averageNet,worstMonth},i)=>{
       const row=rows.insertRow(),label=document.createElement('th');
       label.scope='row';label.textContent=labels[i];row.append(label);
       row.insertCell().textContent=count===undefined?reason:`${num(count,0)}명`;
       if(count===undefined && Number.isFinite(averageNet)){
        const note=document.createElement('small');
        note.textContent=`하루 약 ${num(cap,0)}명 결제 시 월평균 ${money(Math.abs(averageNet))} ${averageNet<0?'부족':'남음'}`;
+       if(averageNet>=0)note.textContent+=` · 가장 부족한 달 ${money(-worstMonth)} 부족`;
        row.cells[1].append(note);
       }
       const delta=count-base;

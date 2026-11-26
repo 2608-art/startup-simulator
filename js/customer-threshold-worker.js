@@ -31,7 +31,10 @@ function minimumBuyers({inputs, context}) {
     if (result.rows.slice(1, 13).every(month => month.change >= -1e-7)) return {count};
   }
   const atCap = ResultsModel.calculate({...inputs, dailyGuests: String(Math.min(10000, Math.ceil(plan.cap)))}, context);
-  return {reason: limit === 10000 ? '입력 범위 내 달성 불가' : '처리 상한 내 달성 불가',
+  if (!atCap?.recurringComplete) return {reason: '비용·입력 확인 필요'};
+  const worstMonth = Math.min(...atCap.rows.slice(1, 13).map(month => month.change));
+  if (worstMonth >= -1e-7) return {count: Math.ceil(atCap.demand.months[0].served - 1e-8)};
+  return {worstMonth, reason: limit === 10000 ? '입력 범위 내 달성 불가' : '처리 상한 내 달성 불가',
     cap: atCap.demand.months[0].served, averageNet: atCap.averageNet};
 }
 
