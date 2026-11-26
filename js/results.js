@@ -90,17 +90,43 @@
    }
   });
  }
+ function renderPairMonths(starts=[],plans=[]){
+  const body=$('pair-month-rows');
+  body.replaceChildren();
+  const series=plans.map(plan=>plan.months??plan.atLimit?.months);
+  $('pair-monthly').hidden=!series.some(months=>months?.length);
+  if($('pair-monthly').hidden)return;
+  for(const [i,id] of ['pair-month-a','pair-month-b'].entries()){
+   const basis=plans[i].atLimit?' · 처리 상한 기준':'';
+   $(id).textContent=num(starts[i],0)+'명 출발'+basis;
+  }
+  for(let i=0;i<6;i++){
+   const row=body.insertRow(),heading=document.createElement('th');
+   heading.scope='row';heading.textContent=(i+1)+'개월';row.append(heading);
+   for(const [j,months] of series.entries()){
+    const cell=row.insertCell(),month=months?.[i];
+    if(!month){cell.textContent=plans[j].reason||'계산 불가';continue;}
+    const guests=document.createElement('strong'),cash=document.createElement('small');
+    guests.textContent='하루 '+num(month.guests,1)+'명';
+    const amount=Math.round(month.change);
+    cash.textContent=amount===0?'0원':money(Math.abs(amount))+(amount>0?' 남음':' 부족');
+    if(amount<0)cash.className='cash-negative';
+    cell.append(guests,cash);
+   }
+  }
+ }
  let startPair;
  function showStartPair(message){
   const rows=$('start-pair-rows'), table=$('start-pair-table'), note=$('start-pair-difference');
   rows.replaceChildren();
   table.hidden=!startPair;
-  if(!startPair){note.textContent=message||'';return;}
+  if(!startPair){renderPairMonths();note.textContent=message||'';return;}
   const scenario=$('start-pair-scenario').selectedIndex;
   const [a,b]=startPair.map(item=>item.start);
   $('pair-label-a').textContent=num(a,0)+'명 출발';
   $('pair-label-b').textContent=num(b,0)+'명 출발';
   const plans=startPair.map(item=>item.scenarios[scenario]);
+  renderPairMonths([a,b],plans);
   function row(title,values){
    const tr=rows.insertRow(),heading=document.createElement('th');
    heading.scope='row';heading.textContent=title;tr.append(heading);
