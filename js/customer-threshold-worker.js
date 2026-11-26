@@ -60,16 +60,21 @@ function sixMonthGrowth(scenario, firstMonth) {
   }, firstMonth);
 }
 
-self.onmessage = ({data: {state, context, firstMonth}}) => {
+self.onmessage = ({data: {state, context, firstMonth, starts}}) => {
   const scenarios = [[1, 0, 0], [.9, 0, 0], [1, 5, 0], [1, 0, 30], [.9, 5, 30]];
   const steady = scenarios.map(args => minimumBuyers(conditions(state, context, ...args)));
   const growthScenarios = [[1, 0, 0], [.9, 0, 0], [1, 5, 0], [.9, 5, 0]];
   const forStart = start => growthScenarios.map(args => sixMonthGrowth(conditions(state, context, ...args), start));
-  const pair = {50: forStart(50), 68: forStart(68)};
+  const computed = new Map();
+  function growthAt(start) {
+    if (!computed.has(start)) computed.set(start, forStart(start));
+    return computed.get(start);
+  }
+  const pair = starts ? starts.map(start => ({start, scenarios: growthAt(start)})) : null;
   if(firstMonth!==null && (!Number.isInteger(firstMonth)||firstMonth<0||firstMonth>10000)){
     self.postMessage({steady, pair, growthError:'첫 달 결제 손님 수를 확인해 주세요.'});
     return;
   }
-  const growth = pair[firstMonth] ?? forStart(firstMonth);
+  const growth = growthAt(firstMonth);
   self.postMessage({steady, pair, growth});
 };

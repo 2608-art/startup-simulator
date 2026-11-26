@@ -97,7 +97,10 @@
   table.hidden=!startPair;
   if(!startPair){note.textContent=message||'';return;}
   const scenario=$('start-pair-scenario').selectedIndex;
-  const plans=[startPair[50][scenario],startPair[68][scenario]];
+  const [a,b]=startPair.map(item=>item.start);
+  $('pair-label-a').textContent=num(a,0)+'명 출발';
+  $('pair-label-b').textContent=num(b,0)+'명 출발';
+  const plans=startPair.map(item=>item.scenarios[scenario]);
   function row(title,values){
    const tr=rows.insertRow(),heading=document.createElement('th');
    heading.scope='row';heading.textContent=title;tr.append(heading);
@@ -115,7 +118,8 @@
    `6개월째 하루 결제 목표는 ${difference(guests,num(Math.abs(guests),0)+'명')}.`:'결제 목표 차이 계산 불가.';
   const cashNote=Number.isFinite(cash)?
    `첫 6개월 운영자금은 ${difference(cash,money(Math.abs(cash)))}.`:'운영자금 차이를 계산할 수 없습니다.';
-  note.textContent=`68명 대신 50명으로 시작하면 ${targetNote} ${cashNote}`;
+  note.textContent=a===b?`두 조건 모두 하루 ${num(a,0)}명 출발입니다. ${targetNote} ${cashNote}`:
+   `${num(b,0)}명 대신 ${num(a,0)}명으로 시작하면 ${targetNote} ${cashNote}`;
   if(plans.some(p=>p.atLimit))note.textContent+=' 처리 상한 기준 금액은 첫해 적자가 남는 경우에 첫 6개월을 버틸 돈입니다.';
  }
  let thresholdWorker, thresholdTimer;
@@ -126,7 +130,10 @@
   const answer=$('threshold-answer'), rows=$('threshold-rows'), basis=$('threshold-basis');
   rows.replaceChildren();
   startPair=null;
-  showStartPair(r?.recurringComplete?'두 출발 조건을 계산하고 있어요…':'운영 비용과 입력값을 확인해 주세요.');
+  const pairInputs=[$('pair-start-a'),$('pair-start-b')];
+  const starts=pairInputs.every(el=>el.validity.valid)?pairInputs.map(el=>el.valueAsNumber):null;
+  const invalidPair='두 출발 인원에 각각 0~10,000 사이의 정수를 입력해 주세요.';
+  showStartPair(!starts?invalidPair:r?.recurringComplete?'두 출발 조건을 계산하고 있어요…':'운영 비용과 입력값을 확인해 주세요.');
   renderGrowthComparison();
   renderGrowth({reason:r?.recurringComplete?'월별 현금을 비교하고 있어요…':'운영 비용과 입력값을 확인해 주세요.'});
   if(!r?.recurringComplete){
@@ -144,14 +151,14 @@
   thresholdTimer=setTimeout(()=>{
    const failed=()=>{answer.textContent='결제 인원을 계산하지 못했어요. 화면을 새로고침해 주세요.';renderGrowth({reason:answer.textContent});showStartPair(answer.textContent);};
    try{
-    const worker=new Worker('js/customer-threshold-worker.js?v=start-pair-1');
+    const worker=new Worker('js/customer-threshold-worker.js?v=start-pair-2');
     thresholdWorker=worker;
     worker.onerror=()=>{worker.terminate();failed();};
     worker.onmessage=({data})=>{
      if(worker!==thresholdWorker)return;
      worker.terminate();
      const {steady,growth,growthError,pair}=data;
-     startPair=pair;showStartPair();
+     startPair=pair;showStartPair(pair?undefined:invalidPair);
      if(growthError)renderGrowth({reason:growthError});
      else{
       renderGrowth(growth[0]);
@@ -173,7 +180,7 @@
       row.insertCell().textContent=!i?'기준':!Number.isFinite(delta)?'—':delta===0?'같음':`${delta>0?'+':''}${delta}명`;
      });
     };
-    worker.postMessage({state,context,firstMonth:state.growthStartMode==='custom'?$('growth-start-count').valueAsNumber:null});
+    worker.postMessage({state,context,starts,firstMonth:state.growthStartMode==='custom'?$('growth-start-count').valueAsNumber:null});
    }catch(_){failed();}
   },180);
  }
@@ -246,6 +253,16 @@
   return validation;
  }
  function setup(){
+  for(const [id,key,initial] of [['pair-start-a','pairStartA',50],['pair-start-b','pairStartB',68]]){
+   const input=$(id);
+   input.value=state[key]??initial;
+   input.oninput=()=>{
+    input.setAttribute('aria-invalid',String(!input.validity.valid));
+    if(input.validity.valid)state[key]=input.valueAsNumber;
+    renderThreshold(lastResult);
+    $('save-status').textContent='출발 인원을 바꿨어요. 결과 가정을 저장하면 다음에도 유지됩니다.';
+   };
+  }
   $('start-pair-scenario').onchange=()=>{if(startPair)showStartPair();};
   const mode=$('growth-start-mode'), count=$('growth-start-count');
   if(state.growthStartMode==='fixed68'){
@@ -278,7 +295,11 @@
   document.querySelectorAll('[data-guests]').forEach(button=>button.onclick=()=>{state.guestSource=button.dataset.guests==='1'?'operations':'scenario';state.dailyGuests=String(Math.min(10000,Math.round(Number(context.operation.dailyGuests)*Number(button.dataset.guests))));$('dailyGuests').value=state.dailyGuests;render();$('save-status').textContent='앞 단계 손님 수를 기준으로 비교 조건을 바꿨어요. 아직 저장하지 않았습니다.';});
   $('cash-table-details').addEventListener('toggle',()=>{if($('cash-table-details').open)table();});
   $('refresh-sources').onclick=()=>{try{const next=getSources();state=M.reconcile(state,context.signature,next);if(!M.validate(state,next).valid){state=M.alignMenus(state,next,context.signature);}context=next;stale=false;$('upstream-notice').hidden=true;sourceView();fill();render();$('save-status').textContent='최신 계획을 불러왔어요. 기존 메뉴가 유효하면 원가·비중·별도 비교 가정을 유지하고, 연동 손님 수는 갱신합니다. 바뀐 비용을 확인해 주세요.';}catch(e){notice(e.message||'앞 단계 저장값을 확인하세요.',true,e.step);render();}};
-  $('results-form').onsubmit=e=>{e.preventDefault();const v=render();if(!v.valid){$('save-status').textContent='입력값을 확인해 주세요. 아직 저장하지 않았습니다.';const key=Object.keys(v.errors)[0],target=$(key)||(key==='menus'?$('menu-assumptions').querySelector('input'):null);if(target){let parent=target.parentElement;while(parent){if(parent.tagName==='DETAILS')parent.open=true;parent=parent.parentElement;}target.focus();}return;}try{const latest=getSources();if(stale||latest.signature!==context.signature){notice('앞 단계가 변경됐어요. 최신 계획을 불러온 뒤 다시 저장해 주세요.',true);render();return;}const r=lastResult;localStorage.setItem('sim.results.v1.'+code,JSON.stringify({schemaVersion:1,districtCode:code,inputs:M.clone(state),sourceSignature:context.signature,summary:{complete:r.complete,baseNeed:r.recurringComplete?r.baseNeed:null,ownerNeed:r.recurringComplete?r.ownerNeed:null,runway:r.runway,ownerCash:r.recurringComplete?r.available:null,ownerMonthlyHours:r.ownerMonthlyHours,closure:r.closure},modelVersion:'results-cash-scenario-v1',savedAt:new Date().toISOString()}));$('save-status').textContent=r.complete?'결과와 비교 가정을 저장했어요.':'가정을 저장했어요. 초기 비용 미확정으로 버틸 기간·폐업 손실은 아직 계산하지 않았습니다.';if(e.submitter?.id==='start-live')location.href='live.html?district='+code;}catch(e){if(e.step){notice(e.message,true,e.step);render();}else $('save-status').textContent='브라우저에 저장하지 못했어요. 입력은 그대로 유지됩니다.';}};
+  $('results-form').onsubmit=e=>{e.preventDefault();
+   for(const id of ['pair-start-a','pair-start-b']){
+    if(!$(id).reportValidity())return;
+   }
+   const v=render();if(!v.valid){$('save-status').textContent='입력값을 확인해 주세요. 아직 저장하지 않았습니다.';const key=Object.keys(v.errors)[0],target=$(key)||(key==='menus'?$('menu-assumptions').querySelector('input'):null);if(target){let parent=target.parentElement;while(parent){if(parent.tagName==='DETAILS')parent.open=true;parent=parent.parentElement;}target.focus();}return;}try{const latest=getSources();if(stale||latest.signature!==context.signature){notice('앞 단계가 변경됐어요. 최신 계획을 불러온 뒤 다시 저장해 주세요.',true);render();return;}const r=lastResult;localStorage.setItem('sim.results.v1.'+code,JSON.stringify({schemaVersion:1,districtCode:code,inputs:M.clone(state),sourceSignature:context.signature,summary:{complete:r.complete,baseNeed:r.recurringComplete?r.baseNeed:null,ownerNeed:r.recurringComplete?r.ownerNeed:null,runway:r.runway,ownerCash:r.recurringComplete?r.available:null,ownerMonthlyHours:r.ownerMonthlyHours,closure:r.closure},modelVersion:'results-cash-scenario-v1',savedAt:new Date().toISOString()}));$('save-status').textContent=r.complete?'결과와 비교 가정을 저장했어요.':'가정을 저장했어요. 초기 비용 미확정으로 버틸 기간·폐업 손실은 아직 계산하지 않았습니다.';if(e.submitter?.id==='start-live')location.href='live.html?district='+code;}catch(e){if(e.step){notice(e.message,true,e.step);render();}else $('save-status').textContent='브라우저에 저장하지 못했어요. 입력은 그대로 유지됩니다.';}};
  }
  async function load(){try{const response=await fetch('data/seoul-districts.geojson');if(!response.ok)throw Error();const rows=D.validate(await response.json());code=new URLSearchParams(location.search).get('district');if(code===null){try{code=localStorage.getItem('sim.district');}catch(_){}}const row=rows.find(r=>r.code===code);if(!row){$('load-message').innerHTML='<h1>먼저 지역을 골라주세요.</h1><a href="map.html">지역 지도로 →</a>';return;}
   try{context=getSources();}catch(e){$('load-message').innerHTML='<h1>앞 단계의 저장값이 필요해요.</h1><p>'+esc(e.message)+'</p><a href="'+(prefixes.includes(e.step)?e.step:'space')+'.html?district='+code+'">해당 단계 확인 →</a>';return;}
