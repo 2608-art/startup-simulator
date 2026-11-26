@@ -1,0 +1,14 @@
+.startup-budget{background:#fffaf0;border:1px solid #cbbda7;border-radius:14px;padding:16px 20px;margin:16px 0 24px;color:#302b24;font-size:14px;line-height:1.6;width:100%;box-sizing:border-box;grid-column:1/-1}
+.startup-budget summary{cursor:pointer;font-weight:700;min-height:44px;display:flex;align-items:center}
+.startup-budget .budget-inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.startup-budget label{display:flex;flex-direction:column;gap:6px;font-size:14px}
+.startup-budget input{width:100%;min-height:44px;background:white;color:#302b24;border:1px solid #9e9383;border-radius:7px;padding:9px;box-sizing:border-box;font:inherit}
+.startup-budget button{min-height:44px;border:1px solid #795638;background:#fff;border-radius:7px;color:#432f21;padding:8px 16px;margin:8px 12px 12px 0;cursor:pointer;font:inherit}
+.startup-budget output{display:block;font-size:17px;font-weight:700;margin-top:8px}
+.startup-budget p{font-size:13px;margin:8px 0;overflow-wrap:anywhere}
+.startup-budget .budget-over,.cash-negative{color:#9d2924!important;background:#fff0ec;border-radius:6px;padding:6px}
+.price-details{margin:16px 0;padding:14px;border:1px solid #cbbda7;border-radius:10px;font-size:14px;line-height:1.6}
+.price-details label{display:block;margin:10px 0}.price-details input{min-height:44px;max-width:150px;margin:0 8px;padding:8px}.price-details a{color:#6c4227;text-decoration:underline}.price-details small{display:block}
+.price-details summary{cursor:pointer;min-height:44px;font-weight:700}
+
+@media(max-width:600px){.startup-budget{padding:12px}.startup-budget .budget-inputs{grid-template-columns:1fr 1fr}.startup-budget output{font-size:16px}}

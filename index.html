@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>가게 미리 열어보기 — 창업 시뮬레이터</title>
+  <meta name="description" content="창업하기 전에 내 가게를 미리 열어보고, 필요한 자금과 판매량, 잘 안 됐을 때의 손실까지 확인하는 시뮬레이터">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="startup-budget.css"><link rel="stylesheet" href="readability.css"></head>
+<body class="readable-ui ui-page-index">
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="처음 화면">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>가게 미리 열어보기</span>
+    </a>
+    <span class="draft-tag">초안</span>
+  </header>
+
+  <main class="picker" aria-labelledby="picker-title">
+    <p class="eyebrow">창업 시뮬레이터</p>
+    <h1 id="picker-title" class="picker-title">어떤 가게를 열어볼까요?</h1>
+    <p class="picker-lede">업종을 고르면 상권, 가게 구성, 자금 순서로 하나씩 정해볼 수 있어요.</p>
+
+    <ul class="industry-grid" id="industry-grid" aria-label="업종 선택"></ul>
+
+    <p class="status" id="pick-status" role="status" aria-live="polite" hidden></p>
+  </main>
+
+  <footer class="foot">
+    <p>이 시뮬레이터는 장사가 잘될지 예측하지 않아요. 입력한 조건을 감당하려면 무엇이 필요한지 보여줄 뿐이에요.</p>
+  </footer>
+
+  <script src="js/cost-reference.js"></script><script src="js/price-model.js"></script><script src="js/kitchen-model.js"></script><script src="js/interior-model.js"></script><script src="js/operations-model.js"></script><script src="js/live-model.js"></script><script src="js/supplies-finance.js"></script><script src="js/funding-model.js"></script><script src="js/results-model.js"></script><script src="js/plan-link.js"></script><script src="js/startup-budget.js"></script><script src="js/industries.js"></script>
+  <script src="js/home.js"></script>
+<script src="js/readability.js"></script></body>
+</html>
