@@ -40,6 +40,8 @@
   $('total').textContent=valid?(cost.total/10000).toLocaleString('ko-KR',{maximumFractionDigits:1}):'—';
   $('construction-cost').textContent=valid?money(cost.construction):'—';$('furniture-cost').textContent=valid?money(cost.furniture):'—';$('reserve-cost').textContent=valid?money(cost.reserve):'—';$('reserve-percent').textContent=state.contingency;
   $('save-layout').disabled=$('next-operations').disabled=!valid||bad.length>0;
+  $('service-choice').hidden=cost.seats>0;
+  if(cost.seats>0)$('takeout-only').checked=false;
   $('seat-count').textContent=cost.seats+'석';$('guest-area').textContent=((state.areaSqm-state.kitchenArea)/M.PYEONG).toFixed(1)+'평';$('item-count').textContent=state.items.length+'개';
   $('item-breakdown').replaceChildren();
   for(const [type,n] of Object.entries(cost.counts)){if(!n)continue;const row=document.createElement('div');row.className='budget-item';const label=document.createElement('span'),value=document.createElement('strong');label.textContent=C[type].name+' × '+n;value.textContent=valid?money(n*state.prices[type]*10000):'—';row.append(label,value);$('item-breakdown').append(row);}
@@ -85,7 +87,11 @@
  function remove(){if(!selected)return;checkpoint();state.items=state.items.filter(i=>i.id!==selected);selected=null;render();dirty();say('물건을 삭제했어요. 되돌리기로 복원할 수 있습니다.');}
  function save(go=false){
   if(!priceValid()||M.invalidItems(state).length||!M.validate(state))return;
-  const saved={schemaVersion:1,districtCode:code,sourceAreaSqm:sourceArea,sourceKitchenAreaSqm:sourceKitchen,kitchenStamp,kitchenLinked,layout:M.clone(state),costs:M.costs(state),isAreaExperiment:Math.abs(state.areaSqm-sourceArea)>.01,modelVersion:'interior-scenario-v1',savedAt:new Date().toISOString()};
+  if(M.costs(state).seats===0&&!$('takeout-only').checked){
+   $('save-status').textContent='좌석을 배치하거나 포장 전용을 선택해 주세요.';
+   $('takeout-only').focus();return;
+  }
+  const saved={serviceMode:M.costs(state).seats===0?'takeout':'seated',schemaVersion:1,districtCode:code,sourceAreaSqm:sourceArea,sourceKitchenAreaSqm:sourceKitchen,kitchenStamp,kitchenLinked,layout:M.clone(state),costs:M.costs(state),isAreaExperiment:Math.abs(state.areaSqm-sourceArea)>.01,modelVersion:'interior-scenario-v1',savedAt:new Date().toISOString()};
   try{localStorage.setItem('sim.interior.v1.'+code,JSON.stringify(saved));$('save-status').textContent=(kitchenLinked?'배치와 예산을 저장했어요.':'주방 미연결 임시 배치를 저장했어요.')+(saved.isAreaExperiment?' 앞 단계와 다른 면적의 비교안입니다.':'');if(go)location.href='operations.html?district='+encodeURIComponent(code);}catch(_){$('save-status').textContent='브라우저에 저장하지 못했어요. 현재 화면의 배치는 유지됩니다.';}
  }
  function resize(restore=false){
@@ -122,6 +128,8 @@
   sourceWidth=linked&&typeof roomWidth==='number'&&M.validNumber(roomWidth,1,100)&&M.validNumber(sourceArea/roomWidth,1,100)?roomWidth:null;
   if(sourceWidth!==null){if(restored&&state.width!==sourceWidth){$('restored-note').textContent='3페이지의 매장 가로 길이가 바뀌었어요. 가구 위치를 다시 확인하세요.';$('restored-note').hidden=false;}state.width=sourceWidth;}
   if(!M.validate(state)){$('loading').textContent='이 면적은 현재 평면도로 표현하기 어렵습니다. 공간 조건의 면적을 확인해 주세요.';return;}
+  $('takeout-only').checked=saved?.serviceMode==='takeout';
+  $('choose-seats').onclick=()=>{$('starter').focus();$('starter').scrollIntoView({block:'center'});say('시작 배치를 적용하거나 가구 목록에서 좌석을 추가하세요.');};
   setup();fillControls();render();$('loading').hidden=true;$('studio-content').hidden=false;
   $('region').textContent=districtName;$('space-size').textContent='전체 '+(sourceArea/M.PYEONG).toFixed(1)+'평 · 주방 '+(sourceKitchen/M.PYEONG).toFixed(1)+'평';$('space-link').href='space.html?district='+code;
   $('kitchen-origin').textContent=linked?'3페이지에서 저장한 주방 면적을 적용했습니다. 주방 면적'+(sourceWidth!==null?'과 매장 가로 길이':'')+'는 3페이지에서 바꿔 주세요.':'주방 미연결: 직접 입력한 임시 면적으로 미리 보고 있습니다. 실제 주방 저장값이 생기면 그 값을 우선 적용합니다.';

@@ -15,7 +15,7 @@
   if(inputs.startupTotal===undefined&&c.operation.financial?.initialTotal)inputs.startupTotal=c.operation.financial.initialTotal;
   const prep=read('sim.preparation.v1.'+code);
   const flow=prep?.finance?.flow||inputs.supplies?.flow;
-  inputs.supplies=S.automatic(prep,read('sim.results.v1.'+code),read('sim.live.v1.'+code),c.operation,code,flow?{flow}:null);
+  inputs.supplies=S.automatic(prep,read('sim.results.v1.'+code),read('sim.live.v1.'+code),c.operation,code,flow?{flow}:null,c.seats);
   const effective={...saved,inputs,sourceSignature:c.signature};
   const result=R.sources(...records.slice(0,4),effective,code,K,I,O,F);
   result.signature=JSON.stringify([...records,S.preparationSignature(prep)]);

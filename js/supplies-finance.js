@@ -4,8 +4,8 @@
  const preparationSignature=p=>p?JSON.stringify([p.inputs,p.menuSignatures,p.finance||null]):null;
  function validBasis(a,op){const numeric=(v,min,max)=>typeof v==='string'&&v.trim()!==''&&Number.isFinite(Number(v))&&Number(v)>=min&&Number(v)<=max;return a&&numeric(a.dailyGuests,0,10000)&&numeric(a.unitsPerGuest,.01,100)&&numeric(a.dineIn,0,100)&&Array.isArray(a.menus)&&a.menus.length===op.menus.filter(m=>m.enabled).length&&new Set(a.menus.map(m=>m.id)).size===a.menus.length&&a.menus.every(m=>op.menus.some(v=>v.enabled&&v.id===m.id)&&numeric(m.weight,0,10000))&&a.menus.some(m=>Number(m.weight)>0);}
  // Current demand is derived; manual procurement prices, stock and pack choices survive.
- function automatic(prep,results,live,op,code,row){
-  const prior=results?.districtCode===code?results.inputs:null,menus=op.menus.filter(m=>m.enabled),basis={dailyGuests:prior?.guestSource==='scenario'?prior.dailyGuests:op.dailyGuests,unitsPerGuest:prior?.unitsPerGuest||'1',dineIn:prior?.dineIn||'70',menus:menus.map(m=>({id:m.id,weight:prior?.menus?.find(v=>v.id===m.id)?.weight||'1'}))};
+ function automatic(prep,results,live,op,code,row,seats){
+  const prior=results?.districtCode===code?results.inputs:null,menus=op.menus.filter(m=>m.enabled),basis={dailyGuests:prior?.guestSource==='scenario'?prior.dailyGuests:op.dailyGuests,unitsPerGuest:prior?.unitsPerGuest||'1',dineIn:seats===0?'0':prior?.dineIn||'70',menus:menus.map(m=>({id:m.id,weight:prior?.menus?.find(v=>v.id===m.id)?.weight||'1'}))};
   if(!validBasis(basis,op))return {schemaVersion:1,status:'missing',message:'현재 손님 수·구매량·메뉴 비중을 확인하세요.'};
   const plan=M.restorePlan(prep,code,op),day=op.days[Number(live?.settings?.day)]?.enabled?String(live.settings.day):String(op.days.findIndex(d=>d.enabled));
   return {schemaVersion:1,status:'linked',automatic:true,districtCode:code,plan,basis,day,flow:row?.flow||prep?.finance?.flow||null,operationSignature:opSignature(op),preparationSignature:preparationSignature(prep)};

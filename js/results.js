@@ -7,7 +7,7 @@
  const groups={
   'capacity-fields':[['capacityMode','처리 가능한 주문량 반영','select',[['observe','입력 매출 유지 · 처리량 경고만'],['limit','처리 가능한 수량으로 매출 제한']]],['serviceMinutes','주문 한 건 처리시간 (분)',.25,30,.25],['capacityWorkers','피크에 함께 응대하는 인원 (사장 포함)',1,100,1],['capacityUtilization','근무시간 중 주문 응대 비율 (%)',10,100,1]],
   'ramp-fields':[['rampMode','개업 초기 매출','select',[['steady','첫 달부터 목표 손님 수 유지'],['gradual','초기 손님이 점차 증가']]],['rampStart','첫 달 목표 대비 손님 비율 (%)',0,100,1],['rampMonths','목표 손님에 도달하는 달 (개월째)',2,24,1]],
-  'finance-fields':[['revenueMode','매출·원가 계산 기준','select',[['menus','메뉴 가격·비중·개별 원가'],['average','예시 공통 객단가·원가율']]],['averageTicket','평균 구매 1개 가격 (원)',0,1000000,1],['costPercent','공통 원가율 (%)',0,100,.1],['interestExtra','대출 외 별도 월 이자 가정 (만원)',0,1e7,.01]],
+  'finance-fields':[['revenueMode','매출·원가 계산 기준','select',[['menus','메뉴 가격·비중·개별 원가'],['average','예시 공통 객단가·원가율']]],['averageTicket','손님 한 명이 평균 얼마를 결제하나요? (원)',0,1000000,1],['costPercent','공통 원가율 (%)',0,100,.1],['interestExtra','대출 외 별도 월 이자 가정 (만원)',0,1e7,.01]],
   'customer-fields':[['dailyGuests','영업일 하루 손님 가정 (명)',0,10000,1],['unitsPerGuest','손님 1명당 구매 수량 (개)',.01,100,.1],['dineIn','매장 이용 손님 비율 (%)',0,100,1]],
   'menu-extra-fields':[['suppliesMode','입력한 메뉴 원가에 소모품이 포함되나요?','select',[['included','포함됨 · 입력 총원가 유지 (기본)'],['separate','미포함 · 메뉴 원가는 재료비만']]],['fees','결제·플랫폼 수수료율 (%)',0,100,.1]],
   'operating-fields':[['staffMonthly','직원 1인당 월 총고용비 (만원)',0,1e7,.01],['otherFixed','기타 월 운영비 (만원)',0,1e7,.01],['taxMonthly','월 세금 지출 가정 (만원)',0,1e7,.01],['ownerDraw','사장 월 생활비 인출 (만원)',0,1e7,.01],['rentVat','앞 단계 월세 부가세','select',[['final','입력 월세가 최종액'],['extra','월세에 10% 추가 가정']]]],
@@ -22,13 +22,18 @@
   $('staff-meta').textContent=`앞 단계 근무: 직원 ${context.operation.staffCount}명, 전체 주 ${num(context.hours.staffHours)}인·시간 / 사장 주 ${num(context.hours.ownerHours)}시간. 월 총고용비는 이 근무계획에 맞게 직접 정해 주세요.`;
  }
  function buildFields(){for(const [id,defs] of Object.entries(groups))$(id).innerHTML=defs.map(([key,label,min,max,step])=>`<label for="${key}">${label}${min==='select'?`<select id="${key}" aria-describedby="${key}-error">${max.map(([value,text])=>`<option value="${value}">${text}</option>`).join('')}</select>`:`<input id="${key}" type="number" min="${min}" max="${max}" step="${step}" aria-describedby="${key}-error">`}<small class="error" id="${key}-error"></small></label>`).join('');}
- function fill(){for(const [k,v] of Object.entries(M.scenarioDefaults(context)))state[k]??=v;state.suppliesMode??='included';state.revenueMode??='menus';state.averageTicket??='5000';state.costPercent??='30';state.interestExtra??='0';for(const key of fields)$(key).value=state[key];$('staffMonthly').disabled=Number(context.operation.staffCount)===0;$('capacityWorkers').max=Math.max(1,Number(context.operation.staffCount)+1);
+ function fill(){for(const [k,v] of Object.entries(M.scenarioDefaults(context)))state[k]??=v;state.suppliesMode??='included';state.revenueMode??='menus';state.averageTicket??='5000';state.costPercent??='30';state.interestExtra??='0';for(const key of fields)$(key).value=state[key];$('dineIn').disabled=context.seats===0;
+  $('seat-mode-note').textContent=context.seats===0?'좌석 0석 · 포장 전용입니다. 매장 손님을 받으려면 인테리어에서 좌석을 배치하세요.':'';
+  $('staffMonthly').disabled=Number(context.operation.staffCount)===0;$('capacityWorkers').max=Math.max(1,Number(context.operation.staffCount)+1);
   $('menu-assumptions').innerHTML=context.menus.map(m=>{const row=state.menus.find(v=>v.id===m.id);return `<div class="menu-assumption"><div class="menu-name">${esc(m.name)}<small>판매가 ${money(m.price)}<br><span id="share-${m.id}"></span></small></div><label>판매 비중 (상대값)<input id="weight-${m.id}" data-menu-id="${m.id}" data-field="weight" type="number" min="0" max="10000" step=".1" value="${esc(row.weight)}" aria-describedby="weight-${m.id}-error"><small class="error" id="weight-${m.id}-error"></small></label><label>개당 원가 (원)<input id="cost-${m.id}" data-menu-id="${m.id}" data-field="cost" type="number" min="0" max="10000000" step="1" value="${esc(row.cost)}" aria-describedby="cost-${m.id}-error"><small class="error" id="cost-${m.id}-error"></small></label></div>`;}).join('');
  }
  function lines(id,rows){$(id).innerHTML=rows.map(([name,value,total])=>`<div${total?' class="total-line"':''}><dt>${esc(name)}</dt><dd>${esc(value)}</dd></div>`).join('');}
  function runwayText(r){return r.kind==='unknown'?'비용 미확정':r.kind==='opening-shortfall'?'개업자금 부족':r.kind==='beyond'?'120개월 내 소진 없음':r.months===0?'첫 달부터 부족':num(r.months,2)+'개월';}
  function renderBusiness(r){
-  const b=M.businessOutcome(r,context,state);$('business-net').textContent=r?.recurringComplete?money(r.averageNet):'확인 필요';$('business-net').className=r?.averageNet<0?'cash-negative':'';$('business-runway').textContent=r?runwayText(r.runway):'확인 필요';$('finance-source-note').textContent=state.revenueMode==='average'?'공통 객단가·원가율로 계산 중 · 메뉴별 직접 입력은 보존됩니다.':'메뉴별 가격·비중·원가로 계산 중';
+  const b=M.businessOutcome(r,context,state);$('business-net').textContent=r?.recurringComplete?money(r.averageNet):'확인 필요';$('business-net').className=r?.averageNet<0?'cash-negative':'';$('business-runway').textContent=r?runwayText(r.runway):'확인 필요';$('finance-source-note').textContent=state.revenueMode==='average'?'결제한 손님 1명당 금액입니다. 한 번에 여러 개를 사도 결제액은 같고, 소모품은 수량에 따라 계산합니다.':'메뉴별 가격·비중·원가로 계산 중';
+  const gapText=gap=>gap>0?money(gap)+' 부족':gap<0?money(-gap)+' 여유':'필요액과 일치';
+  $('funding-gap').textContent=r?.budget.complete?
+   `확보한 자금 ${money(r.budget.funds)} (자기자금 ${money(r.budget.own)} + 대출 ${money(r.budget.loan)}) · 개업까지 ${gapText(-r.openingCash)} · 예비자금까지 포함하면 ${gapText(r.budget.total-r.budget.funds)}`:'개업 비용을 확인하면 부족한 금액을 표시합니다.';
   renderScenario(r);
   $('sync-payroll').disabled=!context.payroll?.valid;
   $('staff-source-note').textContent=state.staffSource==='operations'?'5페이지 급여 계산과 연동 중입니다. 앞 단계 변경 후 다시 불러오면 갱신됩니다.':'이 화면에서 정한 별도 월 고용비입니다. 5페이지 계산을 쓰려면 다시 적용하세요.';

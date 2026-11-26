@@ -6,13 +6,13 @@
  function estimate(records,budget){
   const {space,kitchen,interior,operations,funding,preparation,results}=records,missing=[];
   const costs=space?.costs||{deposit:0,premium:0,monthly:0};if(!space?.costs)missing.push('공간');
-  let equipment=0,estimatedEquipment=0,estimatedEquipmentAmount=0,equipmentVatIncluded=0,construction=0,furniture=0,reserve=0;
+  let equipment=0,estimatedEquipment=0,estimatedEquipmentAmount=0,equipmentVatIncluded=0,construction=0,furniture=0,reserve=0,seats;
   if(kitchen?.layout&&K.validate(kitchen.layout)&&kitchen.spaceAreaSqm===space?.areaSqm){const priced=K.costs(kitchen.layout);equipment=priced.known;estimatedEquipment=priced.estimated;estimatedEquipmentAmount=priced.rows.filter(r=>r.kind==='estimate').reduce((sum,r)=>sum+r.price,0);equipmentVatIncluded=priced.rows.filter(r=>r.kind==='estimate'&&r.vat==='included').reduce((sum,r)=>sum+r.price,0);}else missing.push('주방');
-  if(interior?.layout&&!interior.isAreaExperiment&&I.validate(interior.layout)&&interior.sourceAreaSqm===space?.areaSqm&&interior.sourceKitchenAreaSqm===kitchen?.kitchenAreaSqm){const d=I.costs(interior.layout);({construction,furniture,reserve}=d);}else missing.push('인테리어');
+  if(interior?.layout&&!interior.isAreaExperiment&&I.validate(interior.layout)&&interior.sourceAreaSqm===space?.areaSqm&&interior.sourceKitchenAreaSqm===kitchen?.kitchenAreaSqm){const d=I.costs(interior.layout);({construction,furniture,reserve,seats}=d);}else missing.push('인테리어');
   const op=operations?.inputs||O.fresh();if(!operations)missing.push('운영');else if(!O.validate(op,Object.keys(K.CATALOG)).valid)missing.push('운영 입력');
   const f={...F.fresh(),extra:'100',premiumVat:'extra',equipmentVat:'extra',...(funding?.inputs||{})};for(const k of ['own','loan'])if(numeric(budget[k]))f[k]=budget[k];
   if(f.startupTotal===undefined&&op.financial?.initialTotal)f.startupTotal=op.financial.initialTotal;
-  const code=space?.districtCode||'draft',flow=preparation?.finance?.flow||f.supplies?.flow;f.supplies=S.automatic(preparation,results,null,op,code,flow?{flow}:null);
+  const code=space?.districtCode||'draft',flow=preparation?.finance?.flow||f.supplies?.flow;f.supplies=S.automatic(preparation,results,null,op,code,flow?{flow}:null,seats);
   const c={deposit:costs.deposit,premium:costs.premium,monthly:costs.monthly,equipment,estimatedEquipment,estimatedEquipmentAmount,equipmentVatIncluded,missing:0,construction,furniture,reserve,operation:op,districtCode:code};
   const calc=F.calculate(f,c);if(!calc)return {valid:false,missing};
   const living=Number(budget.ownerDraw||0)*10000,months=Number(budget.reserveMonths||0),pay=O.payroll({...op,employment:op.employment||O.employmentDefaults()});

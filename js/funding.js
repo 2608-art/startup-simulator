@@ -6,7 +6,7 @@
  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const read=key=>{try{return JSON.parse(localStorage.getItem(key));}catch(_){return null;}};
  let code,context,state,stale=false,lastResult=null,flowRow=null;
- function getSources(){const c=M.sources(...PlanLink.upstream(code,read),code,K,I,O),suppliesDraft=S.automatic(read('sim.preparation.v1.'+code),read('sim.results.v1.'+code),read('sim.live.v1.'+code),c.operation,code,flowRow);return {...c,suppliesDraft,suppliesSignature:JSON.stringify(suppliesDraft)};}
+ function getSources(){const c=M.sources(...PlanLink.upstream(code,read),code,K,I,O),suppliesDraft=S.automatic(read('sim.preparation.v1.'+code),read('sim.results.v1.'+code),read('sim.live.v1.'+code),c.operation,code,flowRow,c.seats);return {...c,suppliesDraft,suppliesSignature:JSON.stringify(suppliesDraft)};}
  function notice(message,block=false,step){$('upstream-notice').hidden=false;$('upstream-message').textContent=message;stale=block;$('fix-source').hidden=!step;if(step)$('fix-source').href=step+'.html?district='+code;}
  function sourceView(){
   $('source-summary').textContent=`전체 ${(context.areaSqm/I.PYEONG).toFixed(1)}평 · 객석 ${context.seats}석`;
