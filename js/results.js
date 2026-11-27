@@ -144,10 +144,24 @@
    const tr=rows.insertRow(),heading=document.createElement('th');
    heading.scope='row';heading.textContent=title;tr.append(heading);
    for(const value of values)tr.insertCell().textContent=value;
+   return tr;
   }
   row('6개월째 하루 결제 목표',plans.map(p=>p.count!==undefined?num(p.count,0)+'명':p.reason));
   const reserves=plans.map(p=>p.reserve??p.atLimit?.reserve);
   row('첫 6개월 운영자금',reserves.map((v,i)=>v===undefined?'계산 불가':money(v)+(plans[i].atLimit?' (처리 상한 기준)':'')));
+  const recoveries=plans.map(plan=>(plan.atLimit??plan).recovery);
+  const recoveryRow=row('초반 부족액을 다 메우는 달',recoveries.map((r,i)=>{
+   if(!r)return plans[i].reason||'계산 불가';
+   const timing=r.month?`${r.month}개월 말`:r.noShortfall?'첫 6개월 누적 부족 없음':`${r.through}개월 안에 회복되지 않음`;
+   return timing+(plans[i].atLimit?' (처리 상한 기준)':'');
+  }));
+  recoveries.forEach((r,i)=>{
+   if(!r?.month)return;
+   const note=document.createElement('small');
+   const end=Math.round(r.cumulative);
+   note.textContent=`직전 월말 ${money(Math.abs(r.previous))} 부족 → ${end>0?money(end)+' 남음':'0원'}`;
+   recoveryRow.cells[i+1].append(note);
+  });
   const guests=plans[0].count-plans[1].count, cash=reserves[0]-reserves[1];
   function difference(delta,amount){
    if(delta===0)return '같습니다';
@@ -190,7 +204,7 @@
   thresholdTimer=setTimeout(()=>{
    const failed=()=>{answer.textContent='결제 인원을 계산하지 못했어요. 화면을 새로고침해 주세요.';renderGrowth({reason:answer.textContent});showStartPair(answer.textContent);};
    try{
-    const worker=new Worker('js/customer-threshold-worker.js?v=start-pair-2');
+    const worker=new Worker('js/customer-threshold-worker.js?v=pair-recovery-1');
     thresholdWorker=worker;
     worker.onerror=()=>{worker.terminate();failed();};
     worker.onmessage=({data})=>{

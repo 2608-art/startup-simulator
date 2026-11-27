@@ -44,6 +44,20 @@ function minimumBuyers({inputs, context}, meetsGoal = firstYearCoversLivingCosts
     worstMonth: Math.min(...result.rows.slice(1, 13).map(month => month.change))};
 }
 
+// Opening cash and the initial investment are outside this operating-cash comparison.
+function earlyShortfallRecovery(rows) {
+  let cumulative = 0, hadShortfall = false;
+  for (const row of rows.slice(1)) {
+    const previous = cumulative;
+    cumulative += row.change;
+    if (hadShortfall && cumulative >= -1e-7) {
+      return {month: row.month, previous, cumulative};
+    }
+    if (row.month <= 6 && cumulative < -1e-7) hadShortfall = true;
+  }
+  return hadShortfall ? {through: rows[rows.length - 1].month} : {noShortfall: true};
+}
+
 function sixMonthGrowth(scenario, firstMonth) {
   Object.assign(scenario.inputs, {rampMode: 'gradual', rampStart: '60', rampMonths: '6'});
   return minimumBuyers(scenario, result => result.averageNet >= -1e-7, result => {
@@ -56,7 +70,7 @@ function sixMonthGrowth(scenario, firstMonth) {
       }
       return {month: month.month, guests: month.guests, change: month.change, cumulative};
     });
-    return {reserve: Math.ceil(-lowest - 1e-7), lowMonth, months, averageNet: result.averageNet};
+    return {reserve: Math.ceil(-lowest - 1e-7), lowMonth, months, recovery: earlyShortfallRecovery(result.rows), averageNet: result.averageNet};
   }, firstMonth);
 }
 
